@@ -12,6 +12,7 @@ namespace Ad5001\BetterTell;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
 use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;
    class Main extends PluginBase {
           public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
@@ -20,7 +21,7 @@ use pocketmine\plugin\PluginBase;
                            if($sender->hasPermission("btell.command.tellraw")){
                                  $sender->sendMessage["§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!"];
                                  $telled = $args[0];
-                                 $message = $args[1]->getMessage();
+                                 $message = $this->getServer()->getMessage($args[1]);
                                  $telled->getPlayerExact->sendMessage("$message");
                            }
                            return true;
