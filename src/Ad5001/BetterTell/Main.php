@@ -30,9 +30,9 @@ use pocketmine\plugin\PluginBase;
                                  $sender->sendMessage("§4Usage: /tellraw <player> <message>");
                            }
                   }
+          }
           public function onDisable() {
                  $this->getLogger()->info("Test plugin has been disable!");
-          }
           }
    }
 ?>
