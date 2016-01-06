@@ -2,9 +2,11 @@
 namespace Ad5001\BetterTell;
 
 /*
-                                         BetterTell Plugin by Ad5001 ! 
-                                       This plugin is work in progress! 
-                          Feel free to make issues or/and help me correcting bugs :)
+                         _______________________________________________________________
+                        /                 BetterTell Plugin by Ad5001 !                 \
+                        /               This plugin is work in progress!                \
+                        /  Feel free to make issues or/and help me correcting bugs :)   \
+                        -----------------------------------------------------------------
 */
 
 use pocketmine\command\CommandSender;
@@ -23,10 +25,10 @@ class Main extends PluginBase {
                                  break;
                          default:
                                  $sender->sendMessage("§4Unknown command " . $cmd . ". Try /help for the list of commands");
-         }
-  public function onDisable() {
-    $this->getLogger()->info("Test plugin has been disable!");
-   }
-  }
-}
+                  }
+          public function onDisable() {
+                 $this->getLogger()->info("Test plugin has been disable!");
+          }
+      }
+ }
 ?>
