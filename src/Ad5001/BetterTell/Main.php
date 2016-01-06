@@ -17,14 +17,18 @@ use pocketmine\plugin\PluginBase;
           public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
                  switch($cmd->getName()){ // Command name
                          case "tellraw":
+                           if($sender->hasPermission("btell.command.tellraw")){
                                  $sender->sendMessage["§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!"];
                                  $telled = $args[0];
                                  $message = $args[1]->getMessage();
                                  $telled->getPlayerExact->sendMessage("$message");
-                                 return true;
-                                 break;
+                           }
+                           return true;
+                           break;
                          default:
-                                 $sender->sendMessage("§4Unknown command " . $cmd . ". Try /help for the list of commands");
+                           if($sender->hasPermission("btell.command.tellraw")){
+                                 $sender->sendMessage("§4Usage: /tellraw <player> <message>");
+                           }
                   }
           public function onDisable() {
                  $this->getLogger()->info("Test plugin has been disable!");
