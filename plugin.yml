@@ -1,0 +1,18 @@
+name: Test
+author: Ad5001
+version: "0.01"
+api: 1.13.0
+main: Ad5001\BetterTell\Main
+website: http://ad5001.tk
+
+description: TellRaw plugin for new api
+commands:
+ tellraw:
+  description: "This is a test command that display in the chat what is sayed"
+  usage: "/tellraw <player> <text>"
+  permission: btell.command.tellraw
+permissions:
+   btell.command.tellraw:
+    default: op
+    description: "Send the player the message you want"
+...
