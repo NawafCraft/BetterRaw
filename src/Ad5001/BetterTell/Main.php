@@ -13,7 +13,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
-class Main extends PluginBase {
+   class Main extends PluginBase {
           public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
                  switch($cmd->getName()){ // Command name
                          case "tellraw":
@@ -29,6 +29,6 @@ class Main extends PluginBase {
           public function onDisable() {
                  $this->getLogger()->info("Test plugin has been disable!");
           }
-      }
- }
+          }
+   }
 ?>
