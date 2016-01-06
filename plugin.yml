@@ -8,11 +8,11 @@ website: http://ad5001.tk
 description: TellRaw plugin for new api
 commands:
  tellraw:
-  description: "This is a test command that display in the chat what is sayed"
-  usage: "/tellraw <player> <text>"
+  description: "§6This is a tellraw command like in PC.That display in the chat what do you sayed sayed"
+  usage: "§a/tellraw <player> <text>"
   permission: btell.command.tellraw
 permissions:
    btell.command.tellraw:
     default: op
-    description: "Send the player the message you want"
+    description: "§6Send the player the message you want"
 ...
