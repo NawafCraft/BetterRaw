@@ -32,7 +32,7 @@ use pocketmine\plugin\PluginBase;
                                  $sender->sendMessage("§4Usage: /tellraw <player> <message>");
                            }
                            else {
-                                 $sender->sendMessage("§4You don't have the permission to access TellRaw")
+                                 $sender->sendMessage("§4You don't have the permission to access TellRaw");
                            }
                           
                   }
