@@ -21,8 +21,8 @@ use pocketmine\plugin\PluginBase;
                          case "tellraw":
                            if($sender->hasPermission("btell.command.tellraw")){
                                  $sender->sendMessage("§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!");
-                                 $telled = $this->getServer()->getPlayer($args[0]);
-                                 $message = $this->getServer()->getMessage($args[1]);
+                                 $this->getServer()->getPlayer("$args[0]")->sendMessage("$args[1]");
+                                 $this->getServer()->getPlayer("$sender")->sendMessage("§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!");
                                  $telled->getPlayerExact->sendMessage("$message");
                            }
                            return true;
@@ -30,9 +30,10 @@ use pocketmine\plugin\PluginBase;
                          default:
                            if($sender->hasPermission("btell.command.tellraw")){
                                  $sender->sendMessage("§4Usage: /tellraw <player> <message>");
+                                 $this->getServer()->getPlayer("$sender")->sendMessage("§4Usage: /tellraw <player> <message>");
                            }
-                           else {
-                                 $sender->sendMessage("§4You don't have the permission to access TellRaw");
+                           elseif {
+                                 $this->getServer()->getPlayer("$sender")->sendMessage("§4You don't have the permission to access TellRaw");
                            }
                           
                   }
