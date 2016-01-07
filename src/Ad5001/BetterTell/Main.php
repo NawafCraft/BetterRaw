@@ -30,7 +30,8 @@ use pocketmine\plugin\PluginBase;
                          default:
                            if($sender->hasPermission("btell.command.tellraw")){
                                  $sender->sendMessage("§4Usage: /tellraw <player> <message>");
-                           } else {
+                           }
+                           else {
                                  $sender->sendMessage("§4You don't have the permission to access TellRaw")
                            }
                           
