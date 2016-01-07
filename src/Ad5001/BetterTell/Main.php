@@ -20,8 +20,8 @@ use pocketmine\plugin\PluginBase;
                  switch($cmd->getName()) { // Command name
                          case "tellraw":
                            if($sender->hasPermission("btell.command.tellraw")){
-                                 $sender->sendMessage["§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!"];
-                                 $telled = $this->getServer()->getPlayerExact($args[0]);
+                                 $sender->sendMessage("§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!");
+                                 $telled = $this->getServer()->getPlayer($args[0]);
                                  $message = $this->getServer()->getMessage($args[1]);
                                  $telled->getPlayerExact->sendMessage("$message");
                            }
