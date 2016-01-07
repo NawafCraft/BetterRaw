@@ -12,15 +12,16 @@ namespace Ad5001\BetterTell;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
 use pocketmine\event\Listener;
+use pocketmine\Player;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;
    class Main extends PluginBase {
           public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
-                 switch($cmd->getName()){ // Command name
+                 switch($cmd->getName()) { // Command name
                          case "tellraw":
                            if($sender->hasPermission("btell.command.tellraw")){
                                  $sender->sendMessage["§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!"];
-                                 $sent = $this->getServer()->getPlayerExact($args[0]);
+                                 $telled = $this->getServer()->getPlayerExact($args[0]);
                                  $message = $this->getServer()->getMessage($args[1]);
                                  $telled->getPlayerExact->sendMessage("$message");
                            }
@@ -29,11 +30,14 @@ use pocketmine\plugin\PluginBase;
                          default:
                            if($sender->hasPermission("btell.command.tellraw")){
                                  $sender->sendMessage("§4Usage: /tellraw <player> <message>");
+                           } else {
+                                 $sender->sendMessage("§4You don't have the permission to access TellRaw")
                            }
+                          
                   }
           }
           public function onDisable() {
-                 $this->getLogger()->info("Test plugin has been disable!");
+                 $this->getLogger()->info("\nTellRaw plugin has been disable!\n");
           }
    }
 ?>
