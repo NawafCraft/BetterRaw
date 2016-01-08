@@ -23,7 +23,6 @@ use pocketmine\plugin\PluginBase;
                                  $sender->sendMessage("§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!");
                                  $this->getServer()->getPlayer($args[0])->sendMessage("$args[1]");
                                  $this->getServer()->getPlayer($sender)->sendMessage("§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!");
-                                 $telled->getPlayerExact->sendMessage("$message");
                            }
                            return true;
                            break;
@@ -39,6 +38,9 @@ use pocketmine\plugin\PluginBase;
           }
           public function onDisable() {
                  $this->getLogger()->info("\nTellRaw plugin has been disable!\n");
+          }
+                    public function onEnable() {
+                 $this->getLogger()->info("\nTellRaw plugin has been enable!\n");
           }
    }
 ?>
