@@ -31,8 +31,7 @@ use pocketmine\plugin\PluginBase;
                            if($sender->hasPermission("btell.command.tellraw")){
                                  $sender->sendMessage("§4Usage: /tellraw <player> <message>");
                                  $this->getServer()->getPlayer("$sender")->sendMessage("§4Usage: /tellraw <player> <message>");
-                           }
-                           elseif {
+                           } else {
                                  $this->getServer()->getPlayer("$sender")->sendMessage("§4You don't have the permission to access TellRaw");
                            }
                           
