@@ -1,6 +1,7 @@
 # BetterRaw
 
-A simple plugin that add tellraw WIP ;)
+A simple plugin that add raw commands                         
+WIP ;)
 
 ###• Commands :
        - /tellraw <player> <message...>
