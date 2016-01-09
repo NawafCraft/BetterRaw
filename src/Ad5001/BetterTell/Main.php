@@ -19,33 +19,28 @@ use pocketmine\plugin\PluginBase;
           public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
                  switch($cmd->getName()) { // Command name
                          case "tellraw":
-                           		if(count($args) < 2){
-                           		  $sender->sendMessage("§4Usage: /tellraw <player> <message...>");
-                           		  return true;
-                           		} else {
+                          if(count($args) < 2){
+                            $sender->sendMessage("§4Usage: /tellraw <player> <message...>");
+                            return true;
+                           } else {
                            if($sender->hasPermission("btell.command.tellraw")){
-                                 $sender->sendMessage("§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!");
+                                 $sender->sendMessage("§a§l[Tellraw]§r§a Message has been displayed!");
                                  $this->getServer()->getPlayer($args[0])->sendMessage(implode(" ",$args));
-                                 $this->getServer()->getPlayer($sender)->sendMessage("§a§l[Tellraw]§r§a Message has been display!");
                               }
                            }
                            return true;
                            break;
                          default:
-                           if($sender->hasPermission("btell.command.tellraw")){
-                                 $sender->sendMessage("§4Usage: /tellraw <player> <message>");
-                                 $this->getServer()->getPlayer($sender)->sendMessage("§4Usage: /tellraw <player> <message>");
-                           } else {
-                                 $this->getServer()->getPlayer($sender)->sendMessage("§4You don't have the permission to access TellRaw");
+                           break;
                            }
                           
                   }
           }
           public function onDisable() {
-                 $this->getLogger()->info("\nTellRaw plugin has been disable!\n");
+                 $this->getLogger()->info("\nBetterTell has been disable!\n");
           }
                     public function onEnable() {
-                 $this->getLogger()->info("\nTellRaw plugin has been enable!\n");
+                 $this->getLogger()->info("\nBetterTell has been enable!\n");
           }
    }
 ?>
