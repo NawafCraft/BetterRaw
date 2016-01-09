@@ -15,7 +15,7 @@ commands:
   description: "§6Display in the chat of every players in a specific world a custom raw message"
   usage: "§a/sayworldraw <world> <message...>"
   permission: braw.command.sayworldraw
-  saygmraw:
+ saygmraw:
   description: "§6Display in the chat of every players in a specific gamemode a custom raw message"
   usage: "§a/saygmraw <world> <message...>"
   permission: braw.command.saygmraw
