@@ -56,6 +56,8 @@ use pocketmine\plugin\PluginBase;
                                }
                                }
                              }
+                             return true;
+                             break;
                            }
                          case "saygmraw":
                            if(count($args) < 2){
@@ -74,7 +76,9 @@ use pocketmine\plugin\PluginBase;
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send for everyone in gamemode '" . $gm . "' !");
                                  }
                                }
-                             } 
+                             }
+                             return true;
+                             break;
                            }
                          default:
                            break;
