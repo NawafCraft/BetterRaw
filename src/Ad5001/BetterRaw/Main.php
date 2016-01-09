@@ -1,5 +1,5 @@
 <?php
-namespace Ad5001\BetterTell;
+namespace Ad5001\BetterRaw;
 
 /*
                          _______________________________________________________________
