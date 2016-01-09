@@ -25,10 +25,10 @@ use pocketmine\plugin\PluginBase;
                             return true;
                            } else {
                            if($sender->hasPermission("braw.command.tellraw")){
-                                 $sender->sendMessage("§a§l[Tellraw]§r§a Message has been send to " . $args[0] . "!");
                                  $player = $this->getServer()->getPlayer($args[0]);
                                  unset($args[0]);
                                  $player->sendMessage(implode(" ",$args));
+                                 $sender->sendMessage("§a§l[Tellraw]§r§a Message (" . implode(" ",$args) . ") has been send to " . $player . "!");
                               }
                            }
                            return true;
@@ -39,10 +39,10 @@ use pocketmine\plugin\PluginBase;
                             return true;
                            } else {
                              if($sender->hasPermission("braw.command.sayworldraw")){
-                               $sender->sendMessage("§b§l[WorldSayRaw]§r§b Message has been send on world " . $args[0] . " !");
                                foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
                                  unset($args[0]);
                                  $worldplayers->sendMessage(implode(" ",$args));
+                                 $sender->sendMessage("§b§l[WorldSayRaw]§r§b Message (" . implode(" ",$args) . ") has been send on world '" . $worldplayers . "' !");
                                }
                              }
                            }
@@ -51,10 +51,10 @@ use pocketmine\plugin\PluginBase;
                   }
           }
           public function onDisable() {
-                 $this->getLogger()->info("\nBetterRaw has been disable!\nCommands:\n- /tellraw <player> <message...>\n- /sayworldraw <world> <message...>");
+                 $this->getLogger()->info("\nBetterRaw has been disable!");
           }
                     public function onEnable() {
-                 $this->getLogger()->info("\nBetterRaw has been enable!\n");
+                 $this->getLogger()->info("\nBetterRaw has been enable!\nCommands:\n- /tellraw <player> <message...>\n- /sayworldraw <world> <message...>");
           }
    }
 ?>
