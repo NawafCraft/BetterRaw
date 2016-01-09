@@ -8,7 +8,7 @@ website: http://ad5001.tk
 description: TellRaw plugin for new api
 commands:
  tellraw:
-  description: "§6This is a tellraw command like in PC.Display in the chat of a specific player a custom raw message"
+  description: "§6This is a tellraw command like in PC. Display in the chat of a specific player a custom raw message"
   usage: "§a/tellraw <player> <message...>"
   permission: btell.command.tellraw
   sayworldraw:
