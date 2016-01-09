@@ -1,4 +1,4 @@
-# BetterTell
+# BetterRaw
 
 A simple plugin that add tellraw WIP ;)
 
