@@ -34,8 +34,6 @@ use pocketmine\plugin\PluginBase;
                            break;
                          default:
                            break;
-                           }
-                          
                   }
           }
           public function onDisable() {
