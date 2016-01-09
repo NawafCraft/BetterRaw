@@ -3,8 +3,8 @@
 A simple plugin that add tellraw WIP ;)
 
 ###• Commands :
- - /tellraw <player> <message...>
- - /sayworldraw <world> <message...>
+       - /tellraw <player> <message...>
+       - /sayworldraw <world> <message...>                     
 ####Tellraw
 Tell a player a raw message.
 Exemple > If you type "/tellraw Steve Hi, I'm using tellraw :)"                        
