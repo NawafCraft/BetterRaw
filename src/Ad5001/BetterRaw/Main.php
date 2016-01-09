@@ -24,7 +24,7 @@ use pocketmine\plugin\PluginBase;
                             $sender->sendMessage("§4Usage: /tellraw <player> <message...>");
                             return true;
                            } else {
-                           if($sender->hasPermission("braw.command.tellraw")){
+                            if($sender->hasPermission("braw.command.tellraw")){
                                  $player = $this->getServer()->getPlayer($args[0]);
                                  if(!$player instanceof Player){
                                    $sender->sendMessage("§4§l[Error]§r§4 Player not found");
@@ -33,9 +33,7 @@ use pocketmine\plugin\PluginBase;
                                  $player->sendMessage(implode(" ",$args));
                                  $sender->sendMessage("§a§l[Tellraw]§r§a Message (" . implode(" ",$args) . ") has been send to " . $player . "!");
                               }
-                           }
-                           if(!$player instanceof Player){
-                             $sender->sendMessage("§4§l[Error]§r§4 Player not found");
+                            }
                            }
                            return true;
                            break;
