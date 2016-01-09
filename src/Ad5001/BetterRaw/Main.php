@@ -46,10 +46,11 @@ use pocketmine\plugin\PluginBase;
                                foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
                                  if(!$this->owner->getServer()->isLevelGenerated($worldplayers)) {
                                    $sender->sendMessage("§l§4[Error]§r§4 Level not found");
-                                 } else {
+                               } else {
                                  unset($args[0]);
                                  $worldplayers->sendMessage(implode(" ",$args));
                                  $sender->sendMessage("§b§l[SayWorldRaw]§r§b Message (" . implode(" ",$args) . ") has been send on world '" . $worldplayers . "' !");
+                               }
                                }
                              }
                            }
