@@ -19,10 +19,15 @@ use pocketmine\plugin\PluginBase;
           public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
                  switch($cmd->getName()) { // Command name
                          case "tellraw":
+                           		if(count($args) < 2){
+                           		  $sender->sendMessage("§4Usage: /tellraw <player> <message...>");
+                           		  return true;
+                           		} else {
                            if($sender->hasPermission("btell.command.tellraw")){
                                  $sender->sendMessage("§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!");
-                                 $this->getServer()->getPlayer($args[0])->sendMessage("$args[1]");
-                                 $this->getServer()->getPlayer($sender)->sendMessage("§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!");
+                                 $this->getServer()->getPlayer($args[0])->sendMessage("" . implode(" ",$args)");
+                                 $this->getServer()->getPlayer($sender)->sendMessage("§a§l[Tellraw]§r§a Message has been display!");
+                              }
                            }
                            return true;
                            break;
