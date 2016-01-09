@@ -11,14 +11,17 @@ commands:
   description: "§6This is a tellraw command like in PC. Display in the chat of a specific player a custom raw message"
   usage: "§a/tellraw <player> <message...>"
   permission: braw.command.tellraw
+  aliases: [tr]
  sayworldraw:
   description: "§6Display in the chat of every players in a specific world a custom raw message"
   usage: "§a/sayworldraw <world> <message...>"
   permission: braw.command.sayworldraw
+  aliases: [swr]
  saygmraw:
   description: "§6Display in the chat of every players in a specific gamemode a custom raw message"
   usage: "§a/saygmraw <world> <message...>"
   permission: braw.command.saygmraw
+  aliases: [sgmr]
 permissions:
    braw.command.tellraw:
     default: op
