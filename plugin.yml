@@ -1,18 +1,25 @@
-name: BetterTell
+name: BetterRaw
 author: Ad5001
 version: "0.01"
 api: 1.13.0
-main: Ad5001\BetterTell\Main
+main: Ad5001\BetterRaw\Main
 website: http://ad5001.tk
 
 description: TellRaw plugin for new api
 commands:
  tellraw:
-  description: "§6This is a tellraw command like in PC.That display in the chat what do you sayed sayed"
-  usage: "§a/tellraw <player> <text>"
+  description: "§6This is a tellraw command like in PC.Display in the chat of a specific player a custom raw message"
+  usage: "§a/tellraw <player> <message...>"
   permission: btell.command.tellraw
+  sayworldraw:
+  description: "§6Display in the chat of every players in a specific world a custom raw message"
+  usage: "§a/sayworldraw <world> <message...>"
+  permission: btell.command.sayworldraw
 permissions:
    btell.command.tellraw:
     default: op
-    description: "§6Send the player the message you want"
+    description: "§6Send the player a raw message you want"
+      btell.command.sayworldraw:
+    default: op
+    description: "§6Display in the chat of every players in a specific world a custom raw message"
 ...
