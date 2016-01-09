@@ -25,7 +25,7 @@ use pocketmine\plugin\PluginBase;
                            		} else {
                            if($sender->hasPermission("btell.command.tellraw")){
                                  $sender->sendMessage("§a§l[Tellraw]§r§a Message has been display if you had tipe EXACTLY the player name!");
-                                 $this->getServer()->getPlayer($args[0])->sendMessage("" . implode(" ",$args)");
+                                 $this->getServer()->getPlayer($args[0])->sendMessage(implode(" ",$args));
                                  $this->getServer()->getPlayer($sender)->sendMessage("§a§l[Tellraw]§r§a Message has been display!");
                               }
                            }
