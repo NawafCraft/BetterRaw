@@ -43,10 +43,10 @@ use pocketmine\plugin\PluginBase;
                             return true;
                            } else {
                              if($sender->hasPermission("braw.command.sayworldraw")){
-                               foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
-                                 if(!$this->owner->getServer()->isLevelGenerated($worldplayers)) {
-                                   $sender->sendMessage("§l§4[Error]§r§4 Level not found");
+                               if(!$this->owner->getServer()->isLevelGenerated($args[0])) {
+                                 $sender->sendMessage("§l§4[Error]§r§4 Level not found");
                                } else {
+                               foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
                                  unset($args[0]);
                                  $worldplayers->sendMessage(implode(" ",$args));
                                  $sender->sendMessage("§b§l[SayWorldRaw]§r§b Message (" . implode(" ",$args) . ") has been send on world '" . $worldplayers . "' !");
