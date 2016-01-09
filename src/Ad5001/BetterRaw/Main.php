@@ -26,10 +26,16 @@ use pocketmine\plugin\PluginBase;
                            } else {
                            if($sender->hasPermission("braw.command.tellraw")){
                                  $player = $this->getServer()->getPlayer($args[0]);
+                                 if(!$player instanceof Player){
+                                   $sender->sendMessage("§4§l[Error]§r§4 Player not found");
+                                 } else {
                                  unset($args[0]);
                                  $player->sendMessage(implode(" ",$args));
                                  $sender->sendMessage("§a§l[Tellraw]§r§a Message (" . implode(" ",$args) . ") has been send to " . $player . "!");
                               }
+                           }
+                           if(!$player instanceof Player){
+                             $sender->sendMessage("§4§l[Error]§r§4 Player not found");
                            }
                            return true;
                            break;
@@ -40,9 +46,12 @@ use pocketmine\plugin\PluginBase;
                            } else {
                              if($sender->hasPermission("braw.command.sayworldraw")){
                                foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
+                                 if(!$this->owner->getServer()->isLevelGenerated($worldplayers)) {
+                                   $sender->sendMessage("§l§4[Error]§r§4 Level not found");
+                                 } else {
                                  unset($args[0]);
                                  $worldplayers->sendMessage(implode(" ",$args));
-                                 $sender->sendMessage("§b§l[WorldSayRaw]§r§b Message (" . implode(" ",$args) . ") has been send on world '" . $worldplayers . "' !");
+                                 $sender->sendMessage("§b§l[SayWorldRaw]§r§b Message (" . implode(" ",$args) . ") has been send on world '" . $worldplayers . "' !");
                                }
                              }
                            }
