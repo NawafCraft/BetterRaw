@@ -69,7 +69,6 @@ use pocketmine\plugin\PluginBase;
                                  $gm = $args[0];
                                  foreach($this->getServer()->getOnlinePlayers() as $online){
                                    unset($args[0]);
-                                   $worldplayers->sendMessage(implode(" ",$args));
                                    $goodgm = $online->getGamemode === $gm;
                                    $goodgm->sendMessage(implode(" ",$args));
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send for everyone in gamemode '" . $gm . "' !");
