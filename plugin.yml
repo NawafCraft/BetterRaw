@@ -11,7 +11,7 @@ commands:
   description: "§6This is a tellraw command like in PC. Display in the chat of a specific player a custom raw message"
   usage: "§a/tellraw <player> <message...>"
   permission: braw.command.tellraw
-  sayworldraw:
+ sayworldraw:
   description: "§6Display in the chat of every players in a specific world a custom raw message"
   usage: "§a/sayworldraw <world> <message...>"
   permission: braw.command.sayworldraw
@@ -19,7 +19,7 @@ permissions:
    braw.command.tellraw:
     default: op
     description: "§6Send the player a raw message you want"
-      braw.command.sayworldraw:
+   braw.command.sayworldraw:
     default: op
     description: "§6Display in the chat of every players in a specific world a custom raw message"
 ...
