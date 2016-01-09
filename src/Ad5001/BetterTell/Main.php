@@ -25,7 +25,9 @@ use pocketmine\plugin\PluginBase;
                            } else {
                            if($sender->hasPermission("btell.command.tellraw")){
                                  $sender->sendMessage("§a§l[Tellraw]§r§a Message has been displayed!");
-                                 $this->getServer()->getPlayer($args[0])->sendMessage(implode(" ",$args));
+                                 $player = $this->getServer()->getPlayer($args[0]);
+                                 unset($args[0]);
+                                 $player->sendMessage(implode(" ",$args));
                               }
                            }
                            return true;
