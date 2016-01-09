@@ -33,7 +33,7 @@ use pocketmine\plugin\PluginBase;
                            }
                            return true;
                            break;
-                         case "sayraw":
+                         case "sayworldraw":
                           if(count($args) < 2){
                             $sender->sendMessage("§4Usage: /sayworldraw <world> <message...>");
                             return true;
@@ -41,7 +41,7 @@ use pocketmine\plugin\PluginBase;
                              if($sender->hasPermission("btell.command.worldsayraw")){
                                $sender->sendMessage("§b§l[WorldSayRaw]§r§b Message has been send on world " . $args[0] . " !");
                                foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
-                                 unset($args[0])
+                                 unset($args[0]);
                                  $worldplayers->sendMessage(implode(" ",$args));
                                }
                              }
