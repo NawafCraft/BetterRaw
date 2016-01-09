@@ -5,21 +5,21 @@ api: 1.13.0
 main: Ad5001\BetterRaw\Main
 website: http://ad5001.tk
 
-description: TellRaw plugin for new api
+description: Custom raw messages plugin for new api
 commands:
  tellraw:
   description: "§6This is a tellraw command like in PC. Display in the chat of a specific player a custom raw message"
   usage: "§a/tellraw <player> <message...>"
-  permission: btell.command.tellraw
+  permission: braw.command.tellraw
   sayworldraw:
   description: "§6Display in the chat of every players in a specific world a custom raw message"
   usage: "§a/sayworldraw <world> <message...>"
-  permission: btell.command.sayworldraw
+  permission: braw.command.sayworldraw
 permissions:
-   btell.command.tellraw:
+   braw.command.tellraw:
     default: op
     description: "§6Send the player a raw message you want"
-      btell.command.sayworldraw:
+      braw.command.sayworldraw:
     default: op
     description: "§6Display in the chat of every players in a specific world a custom raw message"
 ...
