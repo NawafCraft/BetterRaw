@@ -43,7 +43,7 @@ use pocketmine\plugin\PluginBase;
                             return true;
                            } else {
                              if($sender->hasPermission("braw.command.sayworldraw")){
-                               if(!$this->owner->getServer()->isLevelGenerated($args[0])) {
+                               if(!$this->getServer()->isLevelGenerated($args[0])) {
                                  $sender->sendMessage("§l§4[Error]§r§4 Level not found");
                                } else {
                                foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
