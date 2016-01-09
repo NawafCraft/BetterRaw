@@ -13,6 +13,7 @@ use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
 use pocketmine\event\Listener;
 use pocketmine\Player;
+use pocketmine\Server;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;
    class Main extends PluginBase {
@@ -24,7 +25,7 @@ use pocketmine\plugin\PluginBase;
                             return true;
                            } else {
                            if($sender->hasPermission("btell.command.tellraw")){
-                                 $sender->sendMessage("§a§l[Tellraw]§r§a Message has been displayed!");
+                                 $sender->sendMessage("§a§l[Tellraw]§r§a Message has been send to " . $args[0] . "!");
                                  $player = $this->getServer()->getPlayer($args[0]);
                                  unset($args[0]);
                                  $player->sendMessage(implode(" ",$args));
@@ -32,6 +33,19 @@ use pocketmine\plugin\PluginBase;
                            }
                            return true;
                            break;
+                         case "sayraw":
+                          if(count($args) < 2){
+                            $sender->sendMessage("§4Usage: /sayworldraw <world> <message...>");
+                            return true;
+                           } else {
+                             if($sender->hasPermission("btell.command.worldsayraw")){
+                               $sender->sendMessage("§b§l[WorldSayRaw]§r§b Message has been send on world " . $args[0] . " !");
+                               foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
+                                 unset($args[0])
+                                 $worldplayers->sendMessage(implode(" ",$args));
+                               }
+                             }
+                           }
                          default:
                            break;
                   }
