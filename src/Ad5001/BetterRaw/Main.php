@@ -18,8 +18,9 @@ use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;
    class Main extends PluginBase {
           public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
-                 switch($cmd->getName()) { // Command name
+                 switch($cmd->getName()) {
                          case "tellraw":
+                           // tellraw command
                           if(count($args) < 2){
                             $sender->sendMessage("§4Usage: /tellraw <player> <message...>");
                             return true;
@@ -31,13 +32,14 @@ use pocketmine\plugin\PluginBase;
                                  } else {
                                  unset($args[0]);
                                  $player->sendMessage(implode(" ",$args));
-                                 $sender->sendMessage("§a§l[Tellraw]§r§a Message (" . implode(" ",$args) . ") has been send to " . $player->getDisplayName() . "!");
+                                 $sender->sendMessage("§a§l[Tellraw]§r§a Message (" . implode(" ",$args) . ")§a has been send to " . $player->getName() . "!");
                               }
                             }
                            }
                            return true;
                            break;
                          case "sayworldraw":
+                           // sayworldraw command
                           if(count($args) < 2){
                             $sender->sendMessage("§4Usage: /sayworldraw <world> <message...>");
                             return true;
@@ -50,10 +52,30 @@ use pocketmine\plugin\PluginBase;
                                  $levelname = $args[0];
                                  unset($args[0]);
                                  $worldplayers->sendMessage(implode(" ",$args));
-                                 $sender->sendMessage("§b§l[SayWorldRaw]§r§b Message (" . implode(" ",$args) . ") has been send on world '" . $levelname . "' !");
+                                 $sender->sendMessage("§b§l[SayWorldRaw]§r§b Message (" . implode(" ",$args) . ")§e has been send on world '" . $levelname . "' !");
                                }
                                }
                              }
+                           }
+                         case "saygmraw":
+                           if(count($args) < 2){
+                            $sender->sendMessage("§4Usage: /saygmraw <gamemode> <message...>");
+                            return true;
+                           } else {
+                             if($sender->hasPermission("braw.command.saygmraw")){
+                               if($args[0] > 3) {
+                                 $sender->sendMessage("§l§4[Error]§r§4 gamemode not found");
+                               } else {
+                                 $gm = $args[0];
+                                 foreach($this->getServer()->getOnline()->getPlayers() as $online){
+                                   unset($args[0]);
+                                   $worldplayers->sendMessage(implode(" ",$args));
+                                   $goodgm = $online->getGamemode === $gm;
+                                   $goodgm->sendMessage(implode(" ",$args));
+                                   $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send for everyone in gamemode '" . $gm . "' !");
+                                 }
+                               }
+                             } 
                            }
                          default:
                            break;
