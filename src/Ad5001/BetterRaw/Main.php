@@ -3,7 +3,7 @@ namespace Ad5001\BetterRaw;
 
 /*
                          _______________________________________________________________
-                        /                 BetterTell Plugin by Ad5001 !                 \
+                        /                 BetterRaw Plugin by Ad5001 !                  \
                         /               This plugin is work in progress!                \
                         /  Feel free to make issues or/and help me correcting bugs :)   \
                         -----------------------------------------------------------------
