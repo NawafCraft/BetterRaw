@@ -68,8 +68,7 @@ use pocketmine\plugin\PluginBase;
                                if($args[0] > 3) {
                                  $sender->sendMessage("§l§4[Error]§r§4 gamemode not found");
                                } else {
-                                 foreach($this->getServer()->getOnlinePlayers() as $online){
-                                   $goodgm = $online->getGamemode("$args[0]");
+                                 foreach($this->getServer()->getOnlinePlayers()->getGamemode($args[0]) as $goodgm){
                                    $gm = $args[0];
                                    unset($args[0]);
                                    $goodgm->sendMessage(implode(" ",$args));
