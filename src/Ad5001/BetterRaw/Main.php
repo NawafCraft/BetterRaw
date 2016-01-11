@@ -65,17 +65,49 @@ use pocketmine\plugin\PluginBase;
                             return true;
                            } else {
                              if($sender->hasPermission("braw.command.saygmraw")){
-                               if($args[0] > 3) {
-                                 $sender->sendMessage("§l§4[Error]§r§4 gamemode not found");
-                               } else {
-                                 foreach($this->getServer()->getOnlinePlayers()->getGamemode($args[0]) as $goodgm){
-                                   $gm = $args[0];
-                                   unset($args[0]);
-                                   $goodgm->sendMessage(implode(" ",$args));
-                                   $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send for everyone in gamemode '" . $gm . "' !");
-                                 }
-                               }
-                             }
+                               switch($args[0]) {
+                                 case 0:
+                                   unset $args[0];
+                                   $gm = $this->getServer()->getOnlinePlayers()->getGamemode(0);
+                                   $gm->sendMessage(implode(" ",$args));
+                                   $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode survival !");
+                                 case 1:
+                                   unset $args[0]
+                                   $gm = $this->getServer()->getOnlinePlayers()->getGamemode(1);
+                                   $gm->sendMessage(implode(" ",$args));
+                                   $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode creative !");
+                                 case 2:
+                                   $gm = $this->getServer()->getOnlinePlayers()->getGamemode(2);
+                                   $gm->sendMessage(implode(" ",$args));
+                                   $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode adventure !");
+                                 case 3:
+                                   unset $args[0]
+                                   $gm = $this->getServer()->getOnlinePlayers()->getGamemode(3);
+                                   $gm->sendMessage(implode(" ",$args));
+                                   $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode spectator !");
+                                 case "survival":
+                                   $gm = $this->getServer()->getOnlinePlayers()->getGamemode(0);
+                                   $gm->sendMessage(implode(" ",$args));
+                                   $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode survival !");
+                                 case "creative":
+                                   unset $args[0]
+                                   $gm = $this->getServer()->getOnlinePlayers()->getGamemode(1);
+                                   $gm->sendMessage(implode(" ",$args));
+                                   $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode creative !");
+                                 case "adventure":
+                                   unset $args[0]
+                                   $gm = $this->getServer()->getOnlinePlayers()->getGamemode(2);
+                                   $gm->sendMessage(implode(" ",$args));
+                                   $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode adventure !");
+                                 case "spectator":
+                                   unset $args[0]
+                                   $gm = $this->getServer()->getOnlinePlayers()->getGamemode(3);
+                                   $gm->sendMessage(implode(" ",$args));
+                                   $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode spectator !");
+                                 default:
+                                   $sender->sendMessage("§l§4[Error]§r§4 Gamemode not found");
+                                }
+                          }
                              return true;
                              break;
                            }
