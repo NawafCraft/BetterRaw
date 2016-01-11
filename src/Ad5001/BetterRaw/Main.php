@@ -72,35 +72,37 @@ use pocketmine\plugin\PluginBase;
                                    $gm->sendMessage(implode(" ",$args));
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode survival !");
                                  case 1:
-                                   unset $args[0]
+                                   unset $args[0];
                                    $gm = $this->getServer()->getOnlinePlayers()->getGamemode(1);
                                    $gm->sendMessage(implode(" ",$args));
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode creative !");
                                  case 2:
+                                   unset $args[0];
                                    $gm = $this->getServer()->getOnlinePlayers()->getGamemode(2);
                                    $gm->sendMessage(implode(" ",$args));
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode adventure !");
                                  case 3:
-                                   unset $args[0]
+                                   unset $args[0];
                                    $gm = $this->getServer()->getOnlinePlayers()->getGamemode(3);
                                    $gm->sendMessage(implode(" ",$args));
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode spectator !");
                                  case "survival":
+                                   unset $args[0];
                                    $gm = $this->getServer()->getOnlinePlayers()->getGamemode(0);
                                    $gm->sendMessage(implode(" ",$args));
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode survival !");
                                  case "creative":
-                                   unset $args[0]
+                                   unset $args[0];
                                    $gm = $this->getServer()->getOnlinePlayers()->getGamemode(1);
                                    $gm->sendMessage(implode(" ",$args));
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode creative !");
                                  case "adventure":
-                                   unset $args[0]
+                                   unset $args[0];
                                    $gm = $this->getServer()->getOnlinePlayers()->getGamemode(2);
                                    $gm->sendMessage(implode(" ",$args));
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode adventure !");
                                  case "spectator":
-                                   unset $args[0]
+                                   unset $args[0];
                                    $gm = $this->getServer()->getOnlinePlayers()->getGamemode(3);
                                    $gm->sendMessage(implode(" ",$args));
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode spectator !");
