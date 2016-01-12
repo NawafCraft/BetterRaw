@@ -12,8 +12,9 @@ namespace Ad5001\BetterRaw;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
 use pocketmine\event\Listener;
+use pocketmine\level\Level;
 use pocketmine\Player;
-use pocketmine\Server;
+use pocketmine\server;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;
    class Main extends PluginBase {
@@ -33,6 +34,7 @@ use pocketmine\plugin\PluginBase;
                                  unset($args[0]);
                                  $player->sendMessage(implode(" ",$args));
                                  $sender->sendMessage("§a§l[Tellraw]§r§a Message (" . implode(" ",$args) . ")§a has been send to " . $player->getName() . "!");
+                                 $this->getLogger()->info($sender->getName() . "sent a Tellraw message to " . $player->getName() " (" implode(" ",$args) . ") !");
                               }
                             }
                            }
@@ -53,6 +55,7 @@ use pocketmine\plugin\PluginBase;
                                  unset($args[0]);
                                  $worldplayers->sendMessage(implode(" ",$args));
                                  $sender->sendMessage("§b§l[SayWorldRaw]§r§b Message (" . implode(" ",$args) . ")§e has been send on world '" . $levelname . "' !");
+                                 $this->getLogger()->info($sender->getName() . "sent a SayWorldRaw message on world " . $levelname " (" implode(" ",$args) . ") !");
                                }
                                }
                              }
