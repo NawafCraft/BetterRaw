@@ -66,22 +66,22 @@ use pocketmine\plugin\PluginBase;
                            } else {
                              if($sender->hasPermission("braw.command.saygmraw")){
                                switch($args[0]) {
-                                 case 0:
+                                 case "0":
                                    unset $args[0];
                                    $gm = $this->getServer()->getOnlinePlayers()->getGamemode(0);
                                    $gm->sendMessage(implode(" ",$args));
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode survival !");
-                                 case 1:
+                                 case "1":
                                    unset $args[0];
                                    $gm = $this->getServer()->getOnlinePlayers()->getGamemode(1);
                                    $gm->sendMessage(implode(" ",$args));
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode creative !");
-                                 case 2:
+                                 case "2":
                                    unset $args[0];
                                    $gm = $this->getServer()->getOnlinePlayers()->getGamemode(2);
                                    $gm->sendMessage(implode(" ",$args));
                                    $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode adventure !");
-                                 case 3:
+                                 case "3":
                                    unset $args[0];
                                    $gm = $this->getServer()->getOnlinePlayers()->getGamemode(3);
                                    $gm->sendMessage(implode(" ",$args));
