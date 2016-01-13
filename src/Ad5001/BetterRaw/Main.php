@@ -32,9 +32,12 @@ use pocketmine\plugin\PluginBase;
                                    $sender->sendMessage("§4§l[Error]§r§4 Player not found");
                                  } else {
                                  unset($args[0]);
+                                 $args = str_replace("{line}", "\n", $args);
+                                 $args = str_replace("&", "§", $args);
+                                 $args = str_replace("fuck", "****", $args);
+                                 $args = str_replace("shit", "****", $args);
                                  $player->sendMessage(implode(" ",$args));
                                  $sender->sendMessage("§a§l[Tellraw]§r§a Message (" . implode(" ",$args) . ")§a has been send to " . $player->getName() . "!");
-                                 $this->getLogger()->info($sender->getName() . "sent a Tellraw message to " . $player->getName() " (" implode(" ",$args) . ") !");
                               }
                             }
                            }
@@ -53,9 +56,12 @@ use pocketmine\plugin\PluginBase;
                                foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
                                  $levelname = $args[0];
                                  unset($args[0]);
+                                 $args = str_replace("{line}", "\n", $args);
+                                 $args = str_replace("&", "§", $args);
+                                 $args = str_replace("fuck", "****", $args);
+                                 $args = str_replace("shit", "****", $args);
                                  $worldplayers->sendMessage(implode(" ",$args));
                                  $sender->sendMessage("§b§l[SayWorldRaw]§r§b Message (" . implode(" ",$args) . ")§e has been send on world '" . $levelname . "' !");
-                                 $this->getLogger()->info($sender->getName() . "sent a SayWorldRaw message on world " . $levelname " (" implode(" ",$args) . ") !");
                                }
                                }
                              }
