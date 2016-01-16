@@ -79,9 +79,8 @@ use pocketmine\plugin\PluginBase;
                                    {
                                    unset($args[0]);
                                    $p = $this->getServer()->getOnlinePlayers();
-                                   $gms = $p->getGamemode();
-                                   if($gms === 0) {
-                                     $gm = $gms->getName();
+                                   if($p->getGamemode() === 0) {
+                                     $gm = $p->getName();
                                      $gm->sendMessage(implode(" ",$args));
                                      $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode survival !");
                                    }
@@ -92,9 +91,8 @@ use pocketmine\plugin\PluginBase;
                                    {
                                    unset($args[0]);
                                    $p = $this->getServer()->getOnlinePlayers();
-                                   $gms = $p->getGamemode();
-                                   if($gms === 1) {
-                                     $gm = $gms->getName();
+                                   if($p->getGamemode() === 1) {
+                                     $gm = $p->getName();
                                      $gm->sendMessage(implode(" ",$args));
                                      $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode creative !");
                                    }
@@ -105,9 +103,8 @@ use pocketmine\plugin\PluginBase;
                                    {
                                    unset($args[0]);
                                    $p = $this->getServer()->getOnlinePlayers();
-                                   $gms = $p->getGamemode();
-                                   if($gms === 2) {
-                                     $gm = $gms->getName();
+                                   if($p->getGamemode() === 2) {
+                                     $gm = $p->getName();
                                      $gm->sendMessage(implode(" ",$args));
                                      $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode adventure !");
                                    }
@@ -118,9 +115,8 @@ use pocketmine\plugin\PluginBase;
                                    {
                                    unset($args[0]);
                                    $p = $this->getServer()->getOnlinePlayers();
-                                   $gms = $p->getGamemode();
-                                   if($gms === 3) {
-                                     $gm = $gms->getName();
+                                   if($p->getGamemode() === 3) {
+                                     $gm = $p->getName();
                                      $gm->sendMessage(implode(" ",$args));
                                      $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode spectator !");
                                    }
@@ -131,9 +127,8 @@ use pocketmine\plugin\PluginBase;
                                    {
                                    unset($args[0]);
                                    $p = $this->getServer()->getOnlinePlayers();
-                                   $gms = $p->getGamemode();
-                                   if($gms === 0) {
-                                     $gm = $gms->getName();
+                                   if($p->getGamemode() === 0) {
+                                     $gm = $p->getName();
                                      $gm->sendMessage(implode(" ",$args));
                                      $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode survival !");
                                    }
@@ -144,9 +139,8 @@ use pocketmine\plugin\PluginBase;
                                    {
                                    unset($args[0]);
                                    $p = $this->getServer()->getOnlinePlayers();
-                                   $gms = $p->getGamemode();
-                                   if($gms === 1) {
-                                     $gm = $gms->getName();
+                                   if($p->getGamemode() === 1) {
+                                     $gm = $p->getName();
                                      $gm->sendMessage(implode(" ",$args));
                                      $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode creative !");
                                    }
@@ -157,9 +151,8 @@ use pocketmine\plugin\PluginBase;
                                    {
                                    unset($args[0]);
                                    $p = $this->getServer()->getOnlinePlayers();
-                                   $gms = $p->getGamemode();
-                                   if($gms === 2) {
-                                     $gm = $gms->getName();
+                                   if($p->getGamemode() === 2) {
+                                     $gm = $p->getName();
                                      $gm->sendMessage(implode(" ",$args));
                                      $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode adventure !");
                                    }
@@ -170,9 +163,8 @@ use pocketmine\plugin\PluginBase;
                                    {
                                    unset($args[0]);
                                    $p = $this->getServer()->getOnlinePlayers();
-                                   $gms = $p->getGamemode();
-                                   if($gms === 3) {
-                                     $gm = $gms->getName();
+                                   if($p->getGamemode() === 3) {
+                                     $gm = $p->getName();
                                      $gm->sendMessage(implode(" ",$args));
                                      $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode spectator !");
                                    }
