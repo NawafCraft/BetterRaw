@@ -87,7 +87,7 @@ use pocketmine\plugin\PluginBase;
                                    }
                                    return true;
                                    break;
-                                   }
+                                 }
                                  case "1":
                                    {
                                    unset($args[0]);
@@ -100,7 +100,7 @@ use pocketmine\plugin\PluginBase;
                                    }
                                    return true;
                                    break;
-                                   }
+                                 }
                                  case "2":
                                    {
                                    unset($args[0]);
@@ -113,7 +113,7 @@ use pocketmine\plugin\PluginBase;
                                    }
                                    return true;
                                    break;
-                                   }
+                                 }
                                  case "3":
                                    {
                                    unset($args[0]);
@@ -126,7 +126,7 @@ use pocketmine\plugin\PluginBase;
                                    }
                                    return true;
                                    break;
-                                   }
+                                 }
                                  case "survival":
                                    {
                                    unset($args[0]);
@@ -139,7 +139,7 @@ use pocketmine\plugin\PluginBase;
                                    }
                                    return true;
                                    break;
-                                   }
+                                 }
                                  case "creative":
                                    {
                                    unset($args[0]);
@@ -149,6 +149,9 @@ use pocketmine\plugin\PluginBase;
                                      $gm = $gms->getName();
                                      $gm->sendMessage(implode(" ",$args));
                                      $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode creative !");
+                                   }
+                                   return true;
+                                   break
                                    }
                                  case "adventure":
                                    {
@@ -162,7 +165,7 @@ use pocketmine\plugin\PluginBase;
                                    }
                                    return true;
                                    break;
-                                   }
+                                 }
                                  case "spectator":
                                    {
                                    unset($args[0]);
@@ -175,7 +178,7 @@ use pocketmine\plugin\PluginBase;
                                    }
                                    return true;
                                    break;
-                                   }
+                                 }
                                  default:
                                    $sender->sendMessage("§l§4[Error]§r§4 Gamemode not found");
                                    return true;
