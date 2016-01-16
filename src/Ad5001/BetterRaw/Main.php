@@ -151,7 +151,7 @@ use pocketmine\plugin\PluginBase;
                                      $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode creative !");
                                    }
                                    return true;
-                                   break
+                                   break;
                                    }
                                  case "adventure":
                                    {
