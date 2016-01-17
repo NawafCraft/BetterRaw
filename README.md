@@ -1,4 +1,4 @@
-# BetterRaw ![BetterTell](icon.png)
+# BetterRaw ![BetterTell](icon.jpg)
 
 A simple plugin that add raw commands                         
 WIP ;)
