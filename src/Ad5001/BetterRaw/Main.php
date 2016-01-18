@@ -180,7 +180,51 @@ use pocketmine\plugin\PluginBase;
                              return true;
                              break;
                            }
-                         default:
+                         case "tip":
+                           // tip command
+                          if(count($args) < 2){
+                            $sender->sendMessage("§4Usage: /tip <player> <message...>");
+                            return true;
+                           } else {
+                            if($sender->hasPermission("braw.command.tip")){
+                                 $player = $this->getServer()->getPlayer($args[0]);
+                                 if(!$player instanceof Player){
+                                   $sender->sendMessage("§4§l[Error]§r§4 Player not found");
+                                 } else {
+                                 unset($args[0]);
+                                 $args = str_replace("{line}", "\n", $args);
+                                 $args = str_replace("&", "§", $args);
+                                 $args = str_replace("fuck", "****", $args);
+                                 $args = str_replace("shit", "****", $args);
+                                 $player->sendTip(implode(" ",$args));
+                                 $sender->sendMessage("§a§l[Tellraw]§r§a Tip (" . implode(" ",$args) . ")§a has been send to " . $player->getName() . "!");
+                              }
+                            }
+                           }
+                           return true;
+                           break;
+                         case "popup":
+                           // popup command
+                          if(count($args) < 2){
+                            $sender->sendMessage("§4Usage: /tip <player> <message...>");
+                            return true;
+                           } else {
+                            if($sender->hasPermission("braw.command.tip")){
+                                 $player = $this->getServer()->getPlayer($args[0]);
+                                 if(!$player instanceof Player){
+                                   $sender->sendMessage("§4§l[Error]§r§4 Player not found");
+                                 } else {
+                                 unset($args[0]);
+                                 $args = str_replace("{line}", "\n", $args);
+                                 $args = str_replace("&", "§", $args);
+                                 $args = str_replace("fuck", "****", $args);
+                                 $args = str_replace("shit", "****", $args);
+                                 $player->sendPopup(implode(" ",$args));
+                                 $sender->sendMessage("§a§l[Tellraw]§r§a Popup (" . implode(" ",$args) . ")§a has been send to " . $player->getName() . "!");
+                              }
+                            }
+                           }
+                           return true;
                            break;
                   }
           }
