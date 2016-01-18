@@ -22,6 +22,14 @@ commands:
   usage: "§a/saygmraw <world> <message...>"
   permission: braw.command.saygmraw
   aliases: [sgmr]
+ tip:
+  description: "§6Display a tip to a specific player"
+  usage: "§a/tip <world> <message...>"
+  permission: braw.command.tip
+ popup:
+  description: "§6Display a popup to a specific player"
+  usage: "§a/popup <world> <message...>"
+  permission: braw.command.popup
 permissions:
    braw.command.tellraw:
     default: op
@@ -32,4 +40,6 @@ permissions:
    braw.command.saygmraw:
     default: op
     description: "§6Display in the chat of every players in a specific gamemode a custom raw message"
+   braw.command.tip:
+    default: op
 ...
