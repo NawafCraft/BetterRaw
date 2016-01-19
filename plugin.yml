@@ -30,6 +30,14 @@ commands:
   description: "§6Display a popup to a specific player"
   usage: "§a/popup <world> <message...>"
   permission: braw.command.popup
+ popupworld:
+  description: "§6Display a popup to everyone in a specific world"
+  usage: "§a/popupworld <world> <message...>"
+  permission: braw.command.popupworld
+ tipworld:
+  description: "§6Display a tip to everyone in a specific world"
+  usage: "§a/tipworld <world> <message...>"
+  permission: braw.command.tipworld
 permissions:
    braw.command.tellraw:
     default: op
@@ -43,13 +51,13 @@ permissions:
    braw.command.tip:
     default: op
     description: "§6Display a popup to a specific player"
-   braw.command.popup
+   braw.command.popup:
     default: op
     description: "§6Display a popup to a specific player"
-   braw.command.popupworld
+   braw.command.popupworld:
     default: op
     description: "§6Display a popup to everyone in a specific world"
-   braw.command.tipworld
+   braw.command.tipworld:
     default: op
     description: "§6Display a tip to everyone in a specific world"
 ...
