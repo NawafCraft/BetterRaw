@@ -220,7 +220,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $player->sendPopup(implode(" ",$args));
-                                 $sender->sendMessage("§c§l[Popup]§r§c Popup (" . implode(" ",$args) . ")§c has been send to " . $player->getName() . "!");
+                                 $sender->sendMessage("§e§l[Popup]§r§e Popup (" . implode(" ",$args) . ")§e has been send to " . $player->getName() . "!");
                               }
                             }
                            }
@@ -244,7 +244,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $worldplayers->sendPopup(implode(" ",$args));
-                                 $sender->sendMessage("§e§l[PopupWorld]§r§e Popup (" . implode(" ",$args) . ")§e has been send on world '" . $levelname . "' !");
+                                 $sender->sendMessage("§d§l[PopupWorld]§r§d Popup (" . implode(" ",$args) . ")§d has been send on world '" . $levelname . "' !");
                                }
                                }
                              }
