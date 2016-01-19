@@ -42,4 +42,6 @@ permissions:
     description: "§6Display in the chat of every players in a specific gamemode a custom raw message"
    braw.command.tip:
     default: op
+   braw.command.popup
+    default: op
 ...
