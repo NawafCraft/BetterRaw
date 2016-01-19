@@ -16,7 +16,7 @@ commands:
   description: "§6Display in the chat of every players in a specific world a custom raw message"
   usage: "§a/tellworldraw <world> <message...>"
   permission: braw.command.tellworldraw
-  aliases: [swr]
+  aliases: [twr]
  saygmraw:
   description: "§6Display in the chat of every players in a specific gamemode a custom raw message"
   usage: "§a/saygmraw <world> <message...>"
@@ -30,14 +30,17 @@ commands:
   description: "§6Display a popup to a specific player"
   usage: "§a/popup <world> <message...>"
   permission: braw.command.popup
+  aliases: [pop]
  popupworld:
   description: "§6Display a popup to everyone in a specific world"
   usage: "§a/popupworld <world> <message...>"
   permission: braw.command.popupworld
+  aliases: [pwr]
  tipworld:
   description: "§6Display a tip to everyone in a specific world"
   usage: "§a/tipworld <world> <message...>"
   permission: braw.command.tipworld
+  aliases: [tw]
 permissions:
    braw.command.tellraw:
     default: op
