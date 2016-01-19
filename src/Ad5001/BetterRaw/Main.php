@@ -43,13 +43,13 @@ use pocketmine\plugin\PluginBase;
                            }
                            return true;
                            break;
-                         case "sayworldraw":
+                         case "tellworldraw":
                            // sayworldraw command
                           if(count($args) < 2){
-                            $sender->sendMessage("§4Usage: /sayworldraw <world> <message...>");
+                            $sender->sendMessage("§4Usage: /tellworldraw <world> <message...>");
                             return true;
                            } else {
-                             if($sender->hasPermission("braw.command.sayworldraw")){
+                             if($sender->hasPermission("braw.command.tellworldraw")){
                                if(!$this->getServer()->isLevelGenerated($args[0])) {
                                  $sender->sendMessage("§l§4[Error]§r§4 Level not found");
                                } else {
@@ -61,7 +61,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $worldplayers->sendMessage(implode(" ",$args));
-                                 $sender->sendMessage("§b§l[SayWorldRaw]§r§b Message (" . implode(" ",$args) . ")§b has been send on world '" . $levelname . "' !");
+                                 $sender->sendMessage("§b§l[TellWorldRaw]§r§b Message (" . implode(" ",$args) . ")§b has been send on world '" . $levelname . "' !");
                                }
                                }
                              }
@@ -206,10 +206,10 @@ use pocketmine\plugin\PluginBase;
                          case "popup":
                            // popup command
                           if(count($args) < 2){
-                            $sender->sendMessage("§4Usage: /tip <player> <message...>");
+                            $sender->sendMessage("§4Usage: /popup <player> <message...>");
                             return true;
                            } else {
-                            if($sender->hasPermission("braw.command.tip")){
+                            if($sender->hasPermission("braw.command.popup")){
                                  $player = $this->getServer()->getPlayer($args[0]);
                                  if(!$player instanceof Player){
                                    $sender->sendMessage("§4§l[Error]§r§4 Player not found");
@@ -226,6 +226,56 @@ use pocketmine\plugin\PluginBase;
                            }
                            return true;
                            break;
+                          case "popupworld":
+                           // sayworldraw command
+                          if(count($args) < 2){
+                            $sender->sendMessage("§4Usage: /popupworld <world> <message...>");
+                            return true;
+                           } else {
+                             if($sender->hasPermission("braw.command.popupworld")){
+                               if(!$this->getServer()->isLevelGenerated($args[0])) {
+                                 $sender->sendMessage("§l§4[Error]§r§4 Level not found");
+                               } else {
+                               foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
+                                 $levelname = $args[0];
+                                 unset($args[0]);
+                                 $args = str_replace("{line}", "\n", $args);
+                                 $args = str_replace("&", "§", $args);
+                                 $args = str_replace("fuck", "****", $args);
+                                 $args = str_replace("shit", "****", $args);
+                                 $worldplayers->sendPopup(implode(" ",$args));
+                                 $sender->sendMessage("§e§l[PopupWorld]§r§e Popup (" . implode(" ",$args) . ")§e has been send on world '" . $levelname . "' !");
+                               }
+                               }
+                             }
+                             return true;
+                             break;
+                           }
+                          case "tipworld":
+                           // sayworldraw command
+                          if(count($args) < 2){
+                            $sender->sendMessage("§4Usage: /tipworld <world> <message...>");
+                            return true;
+                           } else {
+                             if($sender->hasPermission("braw.command.tipworld")){
+                               if(!$this->getServer()->isLevelGenerated($args[0])) {
+                                 $sender->sendMessage("§l§4[Error]§r§4 Level not found");
+                               } else {
+                               foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
+                                 $levelname = $args[0];
+                                 unset($args[0]);
+                                 $args = str_replace("{line}", "\n", $args);
+                                 $args = str_replace("&", "§", $args);
+                                 $args = str_replace("fuck", "****", $args);
+                                 $args = str_replace("shit", "****", $args);
+                                 $worldplayers->sendTip(implode(" ",$args));
+                                 $sender->sendMessage("§c§l[TipWorld]§r§c Tip (" . implode(" ",$args) . ")§c has been send on world '" . $levelname . "' !");
+                               }
+                               }
+                             }
+                             return true;
+                             break;
+                           }
                   }
           }
           public function onDisable() {
