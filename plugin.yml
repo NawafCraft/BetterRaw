@@ -12,10 +12,10 @@ commands:
   usage: "§a/tellraw <player> <message...>"
   permission: braw.command.tellraw
   aliases: [tr]
- sayworldraw:
+ tellworldraw:
   description: "§6Display in the chat of every players in a specific world a custom raw message"
-  usage: "§a/sayworldraw <world> <message...>"
-  permission: braw.command.sayworldraw
+  usage: "§a/tellworldraw <world> <message...>"
+  permission: braw.command.tellworldraw
   aliases: [swr]
  saygmraw:
   description: "§6Display in the chat of every players in a specific gamemode a custom raw message"
@@ -34,7 +34,7 @@ permissions:
    braw.command.tellraw:
     default: op
     description: "§6Send the player a raw message you want"
-   braw.command.sayworldraw:
+   braw.command.tellworldraw:
     default: op
     description: "§6Display in the chat of every players in a specific world a custom raw message"
    braw.command.saygmraw:
@@ -42,6 +42,14 @@ permissions:
     description: "§6Display in the chat of every players in a specific gamemode a custom raw message"
    braw.command.tip:
     default: op
+    description: "§6Display a popup to a specific player"
    braw.command.popup
     default: op
+    description: "§6Display a popup to a specific player"
+   braw.command.popupworld
+    default: op
+    description: "§6Display a popup to everyone in a specific world"
+   braw.command.tipworld
+    default: op
+    description: "§6Display a tip to everyone in a specific world"
 ...
