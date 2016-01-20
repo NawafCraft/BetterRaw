@@ -35,7 +35,7 @@ commands:
   description: "§6Display a popup to everyone in a specific world"
   usage: "§a/popupworld <world> <message...>"
   permission: braw.command.popupworld
-  aliases: [pwr]
+  aliases: [pw]
  tipworld:
   description: "§6Display a tip to everyone in a specific world"
   usage: "§a/tipworld <world> <message...>"
