@@ -14,6 +14,7 @@ use pocketmine\command\Command;
 use pocketmine\event\Listener;
 use pocketmine\level\Level;
 use pocketmine\Player;
+use pocketmine\IPlayer;
 use pocketmine\server;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;
