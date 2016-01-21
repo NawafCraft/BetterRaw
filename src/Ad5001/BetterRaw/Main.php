@@ -276,13 +276,32 @@ use pocketmine\plugin\PluginBase;
                              return true;
                              break;
                            }
+                           case "tellgroupraw":
+                            $purePerms = $this->getServer()->getPluginManager()->getPlugin("PurePerms");
+                             if(count($args) < 2){
+                            $sender->sendMessage("§4Usage: /tellgroupraw <group> <message...>");
+                            return true;
+                             } elseif($purePerms !== null){
+                               $sender->sendMessage("§l§4[Error]§r§4 PurePerms not found")
+                             if($sender->hasPermission("braw.command.tellgroupraw")){
+                               $groupe = $this->purePerms->getUserDataMgr()->getGroup($args[0]);
+                               $pl = $groupe->getPlayers();
+                               unset($args[0]);
+                                 $args = str_replace("{line}", "\n", $args);
+                                 $args = str_replace("&", "§", $args);
+                                 $args = str_replace("fuck", "****", $args);
+                                 $args = str_replace("shit", "****", $args);
+                                 $pl->sendMessage(implode(" ",$args));
+                                 $sender->sendMessage("§9§l[TellGroupRaw]§r§9 Tip (" . implode(" ",$args) . ")§9 has been send to group '" . $groupe "'")
+                             }
                   }
           }
           public function onDisable() {
                  $this->getLogger()->info("\nBetterRaw has been disable!");
           }
                     public function onEnable() {
-                 $this->getLogger()->info("BetterRaw has been enable!\nCommands:\n- /tellraw <player> <message...>\n- /sayworldraw <world> <message...>");
+                 $this->getLogger()->info("BetterRaw has been enable!\nCommands:\n- /tellraw <player> <message...>\n- /tellworldraw <world> <message...>\n- /tip <player> <message...>\n- /tipworld <world> <message...>\n- /popup <player> <message...>\n- /popupworld <world> <message...>");
+                 $this->purePerms = $this->getServer()->getPluginManager()->getPlugin("PurePerms");
           }
    }
 ?>
