@@ -38,7 +38,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $player->sendMessage(implode(" ",$args));
-                                 $sender->sendMessage("§a§l[Tellraw]§r§a Message (" . implode(" ",$args) . ")§a has been send to " . $player->getName() . "!");
+                                 $sender->sendTip("§a§l[Tellraw]§r§a Message (" . implode(" ",$args) . ")§a has been send to " . $player->getName() . "!");
                               }
                             }
                            }
@@ -62,7 +62,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $worldplayers->sendMessage(implode(" ",$args));
-                                 $sender->sendMessage("§b§l[TellWorldRaw]§r§b Message (" . implode(" ",$args) . ")§b has been send on world '" . $levelname . "' !");
+                                 $sender->sendTip("§b§l[TellWorldRaw]§r§b Message (" . implode(" ",$args) . ")§b has been send on world '" . $levelname . "' !");
                                }
                                }
                              }
@@ -198,7 +198,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $player->sendTip(implode(" ",$args));
-                                 $sender->sendMessage("§4§l[Tip]§r§4 Tip (" . implode(" ",$args) . ")§4 has been send to " . $player->getName() . "!");
+                                 $sender->sendTip("§4§l[Tip]§r§4 Tip (" . implode(" ",$args) . ")§4 has been send to " . $player->getName() . "!");
                               }
                             }
                            }
@@ -221,7 +221,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $player->sendPopup(implode(" ",$args));
-                                 $sender->sendMessage("§e§l[Popup]§r§e Popup (" . implode(" ",$args) . ")§e has been send to " . $player->getName() . "!");
+                                 $sender->sendTip("§e§l[Popup]§r§e Popup (" . implode(" ",$args) . ")§e has been send to " . $player->getName() . "!");
                               }
                             }
                            }
@@ -245,7 +245,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $worldplayers->sendPopup(implode(" ",$args));
-                                 $sender->sendMessage("§d§l[PopupWorld]§r§d Popup (" . implode(" ",$args) . ")§d has been send on world '" . $levelname . "' !");
+                                 $sender->sendTip("§d§l[PopupWorld]§r§d Popup (" . implode(" ",$args) . ")§d has been send on world '" . $levelname . "' !");
                                }
                                }
                              }
@@ -260,7 +260,7 @@ use pocketmine\plugin\PluginBase;
                            } else {
                              if($sender->hasPermission("braw.command.tipworld")){
                                if(!$this->getServer()->isLevelGenerated($args[0])) {
-                                 $sender->sendMessage("§l§4[Error]§r§4 Level not found");
+                                 $sender->sendTip("§l§4[Error]§r§4 Level not found");
                                } else {
                                foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
                                  $levelname = $args[0];
@@ -288,16 +288,18 @@ use pocketmine\plugin\PluginBase;
                              if($sender->hasPermission("braw.command.tellgroupraw")){
                                $player = $this->getServer()->getPlayer("Test");
                                $group = $args[0];
-                               $groupe = $this->purePerms->getUserDataMgr()->setGroup($player, $group);
-                               $groupe2 = $this->purePerms->getUserDataMgr()->getGroup($groupe);
-                               $pl = $groupe2->getPlayers();
-                               unset($args[0]);
+                               $pl = $this->purePerms->getPPGroup()->getUsers($group);
+                               if($pl == null) {
+                                 $sender->sendTip("§l§4[Error]§r§4 Group not found.");
+                               } else {
+                                 unset($args[0]);
                                  $args = str_replace("{line}", "\n", $args);
                                  $args = str_replace("&", "§", $args);
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $pl->sendMessage(implode(" ",$args));
-                                 $sender->sendMessage("§9§l[TellGroupRaw]§r§9 Tip (" . implode(" ",$args) . ")§9 has been send to group '" . $groupe . "'");
+                                 $sender->sendMessage("§9§l[TellGroupRaw]§r§9 Tip (" . implode(" ",$args) . ")§9 has been send to group '" . $group . "'");
+                               }
                              }
                              }
                   }
