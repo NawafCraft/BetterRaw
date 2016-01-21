@@ -282,7 +282,8 @@ use pocketmine\plugin\PluginBase;
                             $sender->sendMessage("§4Usage: /tellgroupraw <group> <message...>");
                             return true;
                              } elseif($purePerms !== null){
-                               $sender->sendMessage("§l§4[Error]§r§4 PurePerms not found")
+                               $sender->sendMessage("§l§4[Error]§r§4 PurePerms not found");
+                             } else {
                              if($sender->hasPermission("braw.command.tellgroupraw")){
                                $groupe = $this->purePerms->getUserDataMgr()->getGroup($args[0]);
                                $pl = $groupe->getPlayers();
@@ -292,7 +293,8 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $pl->sendMessage(implode(" ",$args));
-                                 $sender->sendMessage("§9§l[TellGroupRaw]§r§9 Tip (" . implode(" ",$args) . ")§9 has been send to group '" . $groupe "'")
+                                 $sender->sendMessage("§9§l[TellGroupRaw]§r§9 Tip (" . implode(" ",$args) . ")§9 has been send to group '" . $groupe . "'");
+                             }
                              }
                   }
           }
