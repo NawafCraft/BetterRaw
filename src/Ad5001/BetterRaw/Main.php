@@ -281,7 +281,7 @@ use pocketmine\plugin\PluginBase;
                              if(count($args) < 2){
                             $sender->sendMessage("§4Usage: /tellgroupraw <group> <message...>");
                             return true;
-                             } elseif($purePerms !== null){
+                             } elseif($purePerms == null){
                                $sender->sendMessage("§l§4[Error]§r§4 PurePerms not found");
                              } else {
                              if($sender->hasPermission("braw.command.tellgroupraw")){
