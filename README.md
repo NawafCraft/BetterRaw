@@ -3,7 +3,7 @@
 
 A simple plugin that add raw commands                         
 WIP ;)
-
+<a href="https://forums.pocketmine.net/plugins/betterraw.1715/">Download it on pocketmine :)</a>
 ###• Commands :
        - /tellraw <player> <message...>
        - /tellworldraw <world> <message...> 
