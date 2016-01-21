@@ -41,6 +41,11 @@ commands:
   usage: "§a/tipworld <world> <message...>"
   permission: braw.command.tipworld
   aliases: [tw]
+ tellgroupraw:
+  description: "§6Display in the chat of every players in a specific group a custom raw message"
+  usage: "§a/tellgroupraw <group> <message...>"
+  permission: braw.command.tellgroupraw
+  aliases: [tgr]
 permissions:
    braw.command.tellraw:
     default: op
