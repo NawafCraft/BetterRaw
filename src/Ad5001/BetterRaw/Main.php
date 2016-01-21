@@ -286,8 +286,11 @@ use pocketmine\plugin\PluginBase;
                                $sender->sendMessage("§l§4[Error]§r§4 PurePerms not found");
                              } else {
                              if($sender->hasPermission("braw.command.tellgroupraw")){
-                               $groupe = $this->purePerms->getUserDataMgr()->getGroup($args[0]);
-                               $pl = $groupe->getPlayers();
+                               $player = $this->getServer()->getPlayer("Test");
+                               $group = $args[0];
+                               $groupe = $this->purePerms->getUserDataMgr()->setGroup($player, $group);
+                               $groupe2 = $this->purePerms->getUserDataMgr()->getGroup($groupe);
+                               $pl = $groupe2->getPlayers();
                                unset($args[0]);
                                  $args = str_replace("{line}", "\n", $args);
                                  $args = str_replace("&", "§", $args);
