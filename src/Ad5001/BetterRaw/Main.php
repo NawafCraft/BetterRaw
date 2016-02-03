@@ -85,8 +85,8 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("&", "§", $args);
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
-                                 $player->(implode(" ",$args));
-                                 $sender->("§4§l[Tip]§r§4 Tip (" . implode(" ",$args) . ")§4 has been send to " . $player->getName() . "!");
+                                 $player->sendTip(implode(" ",$args));
+                                 $sender->sendMessage("§4§l[Tip]§r§4 Tip (" . implode(" ",$args) . ")§4 has been send to " . $player->getName() . "!");
                               }
                             }
                            }
@@ -109,7 +109,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $player->sendPopup(implode(" ",$args));
-                                 $sender->("§e§l[Popup]§r§e Popup (" . implode(" ",$args) . ")§e has been send to " . $player->getName() . "!");
+                                 $sender->sendMessage("§e§l[Popup]§r§e Popup (" . implode(" ",$args) . ")§e has been send to " . $player->getName() . "!");
                               }
                             }
                            }
@@ -133,7 +133,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $worldplayers->sendPopup(implode(" ",$args));
-                                 $sender->("§d§l[PopupWorld]§r§d Popup (" . implode(" ",$args) . ")§d has been send on world '" . $levelname . "' !");
+                                 $sender->sendMessage("§d§l[PopupWorld]§r§d Popup (" . implode(" ",$args) . ")§d has been send on world '" . $levelname . "' !");
                                }
                                }
                              }
@@ -157,7 +157,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("&", "§", $args);
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
-                                 $worldplayers->(implode(" ",$args));
+                                 $worldplayers->sendTip(implode(" ",$args));
                                  $sender->sendMessage("§c§l[TipWorld]§r§c Tip (" . implode(" ",$args) . ")§c has been send on world '" . $levelname . "' !");
                                }
                                }
