@@ -38,7 +38,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $player->sendMessage(implode(" ",$args));
-                                 $sender->sendTip("§a§l[Tellraw]§r§a Message (" . implode(" ",$args) . ")§a has been send to " . $player->getName() . "!");
+                                 $sender->sendMessage("§a§l[Tellraw]§r§a Message (" . implode(" ",$args) . ")§a has been send to " . $player->getName() . "!");
                               }
                             }
                            }
@@ -62,122 +62,10 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $worldplayers->sendMessage(implode(" ",$args));
-                                 $sender->sendTip("§b§l[TellWorldRaw]§r§b Message (" . implode(" ",$args) . ")§b has been send on world '" . $levelname . "' !");
+                                 $sender->sendMessage("§b§l[TellWorldRaw]§r§b Message (" . implode(" ",$args) . ")§b has been send on world '" . $levelname . "' !");
                                }
                                }
                              }
-                             return true;
-                             break;
-                           }
-                         case "saygmraw":
-                           if(count($args) < 2){
-                            $sender->sendMessage("§4Usage: /saygmraw <gamemode> <message...>");
-                            return true;
-                           } else {
-                             if($sender->hasPermission("braw.command.saygmraw")){
-                               switch($args[0]) {
-                                 case "0":
-                                   {
-                                   unset($args[0]);
-                                   $p = $this->getServer()->getOnlinePlayers();
-                                   if($p->getGamemode() === 0) {
-                                     $gm = $p->getName();
-                                     $gm->sendMessage(implode(" ",$args));
-                                     $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode survival !");
-                                   }
-                                   return true;
-                                   break;
-                                 }
-                                 case "1":
-                                   {
-                                   unset($args[0]);
-                                   $p = $this->getServer()->getOnlinePlayers();
-                                   if($p->getGamemode() === 1) {
-                                     $gm = $p->getName();
-                                     $gm->sendMessage(implode(" ",$args));
-                                     $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode creative !");
-                                   }
-                                   return true;
-                                   break;
-                                 }
-                                 case "2":
-                                   {
-                                   unset($args[0]);
-                                   $p = $this->getServer()->getOnlinePlayers();
-                                   if($p->getGamemode() === 2) {
-                                     $gm = $p->getName();
-                                     $gm->sendMessage(implode(" ",$args));
-                                     $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode adventure !");
-                                   }
-                                   return true;
-                                   break;
-                                 }
-                                 case "3":
-                                   {
-                                   unset($args[0]);
-                                   $p = $this->getServer()->getOnlinePlayers();
-                                   if($p->getGamemode() === 3) {
-                                     $gm = $p->getName();
-                                     $gm->sendMessage(implode(" ",$args));
-                                     $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode spectator !");
-                                   }
-                                   return true;
-                                   break;
-                                 }
-                                 case "survival":
-                                   {
-                                   unset($args[0]);
-                                   $p = $this->getServer()->getOnlinePlayers();
-                                   if($p->getGamemode() === 0) {
-                                     $gm = $p->getName();
-                                     $gm->sendMessage(implode(" ",$args));
-                                     $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode survival !");
-                                   }
-                                   return true;
-                                   break;
-                                 }
-                                 case "creative":
-                                   {
-                                   unset($args[0]);
-                                   $p = $this->getServer()->getOnlinePlayers();
-                                   if($p->getGamemode() === 1) {
-                                     $gm = $p->getName();
-                                     $gm->sendMessage(implode(" ",$args));
-                                     $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode creative !");
-                                   }
-                                   return true;
-                                   break;
-                                   }
-                                 case "adventure":
-                                   {
-                                   unset($args[0]);
-                                   $p = $this->getServer()->getOnlinePlayers();
-                                   if($p->getGamemode() === 2) {
-                                     $gm = $p->getName();
-                                     $gm->sendMessage(implode(" ",$args));
-                                     $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode adventure !");
-                                   }
-                                   return true;
-                                   break;
-                                 }
-                                 case "spectator":
-                                   {
-                                   unset($args[0]);
-                                   $p = $this->getServer()->getOnlinePlayers();
-                                   if($p->getGamemode() === 3) {
-                                     $gm = $p->getName();
-                                     $gm->sendMessage(implode(" ",$args));
-                                     $sender->sendMessage("§e§l[SayGMRaw]§r§e Message (" . implode(" ",$args) . ")§e has been send to everyone in gamemode spectator !");
-                                   }
-                                   return true;
-                                   break;
-                                 }
-                                 default:
-                                   $sender->sendMessage("§l§4[Error]§r§4 Gamemode not found");
-                                   return true;
-                                   break;
-                                }
-                          }
                              return true;
                              break;
                            }
@@ -197,8 +85,8 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("&", "§", $args);
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
-                                 $player->sendTip(implode(" ",$args));
-                                 $sender->sendTip("§4§l[Tip]§r§4 Tip (" . implode(" ",$args) . ")§4 has been send to " . $player->getName() . "!");
+                                 $player->(implode(" ",$args));
+                                 $sender->("§4§l[Tip]§r§4 Tip (" . implode(" ",$args) . ")§4 has been send to " . $player->getName() . "!");
                               }
                             }
                            }
@@ -221,7 +109,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $player->sendPopup(implode(" ",$args));
-                                 $sender->sendTip("§e§l[Popup]§r§e Popup (" . implode(" ",$args) . ")§e has been send to " . $player->getName() . "!");
+                                 $sender->("§e§l[Popup]§r§e Popup (" . implode(" ",$args) . ")§e has been send to " . $player->getName() . "!");
                               }
                             }
                            }
@@ -245,7 +133,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $worldplayers->sendPopup(implode(" ",$args));
-                                 $sender->sendTip("§d§l[PopupWorld]§r§d Popup (" . implode(" ",$args) . ")§d has been send on world '" . $levelname . "' !");
+                                 $sender->("§d§l[PopupWorld]§r§d Popup (" . implode(" ",$args) . ")§d has been send on world '" . $levelname . "' !");
                                }
                                }
                              }
@@ -260,7 +148,7 @@ use pocketmine\plugin\PluginBase;
                            } else {
                              if($sender->hasPermission("braw.command.tipworld")){
                                if(!$this->getServer()->isLevelGenerated($args[0])) {
-                                 $sender->sendTip("§l§4[Error]§r§4 Level not found");
+                                 $sender->("§l§4[Error]§r§4 Level not found");
                                } else {
                                foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
                                  $levelname = $args[0];
@@ -269,7 +157,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("&", "§", $args);
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
-                                 $worldplayers->sendTip(implode(" ",$args));
+                                 $worldplayers->(implode(" ",$args));
                                  $sender->sendMessage("§c§l[TipWorld]§r§c Tip (" . implode(" ",$args) . ")§c has been send on world '" . $levelname . "' !");
                                }
                                }
@@ -290,7 +178,7 @@ use pocketmine\plugin\PluginBase;
                                $group = $args[0];
                                $pl = $this->purePerms->getPPGroup()->getUsers($group);
                                if($pl == null) {
-                                 $sender->sendTip("§l§4[Error]§r§4 Group not found.");
+                                 $sender->("§l§4[Error]§r§4 Group not found.");
                                } else {
                                  unset($args[0]);
                                  $args = str_replace("{line}", "\n", $args);
@@ -302,6 +190,58 @@ use pocketmine\plugin\PluginBase;
                                }
                              }
                              }
+	                case "sayraw":
+	                           // sayraw command
+	                          if(count($args) < 1){
+	                            $sender->sendMessage("§4Usage: /sayraw <message...>");
+	                            return true;
+	                           } else {
+	                            if($sender->hasPermission("braw.command.sayraw")){
+	                                 $online = $this->getServer()->getOnlinePlayers();
+	                                 $args = str_replace("{line}", "\n", $args);
+	                                 $args = str_replace("&", "§", $args);
+	                                 $args = str_replace("fuck", "****", $args);
+	                                 $args = str_replace("shit", "****", $args);
+	                                 $online->sendMessage(implode(" ",$args));
+	                                 $sender->sendMessage("§6§l[Sayraw]§r§6 Message (" . implode(" ",$args) . ")§a has been sayed!");
+	                              }
+	                            }	                
+                                case "saytip":
+	                           // saytip command
+	                          if(count($args) < 1){
+	                            $sender->sendMessage("§4Usage: /saytip <message...>");
+	                            return true;
+	                           } else {
+	                            if($sender->hasPermission("braw.command.saytip")){
+	                                 $online = $this->getServer()->getOnlinePlayers();
+	                                 $args = str_replace("{line}", "\n", $args);
+	                                 $args = str_replace("&", "§", $args);
+	                                 $args = str_replace("fuck", "****", $args);
+	                                 $args = str_replace("shit", "****", $args);
+	                                 $online->sendTip(implode(" ",$args));
+	                                 $sender->sendMessage("§9§l[SayTip]§r§9 Tip (" . implode(" ",$args) . ")§a has been sayed!");
+	                              }
+	                            }
+			case "saypopup":
+	                           // sayraw command
+	                          if(count($args) < 1){
+	                            $sender->sendMessage("§4Usage: /saypopup <message...>");
+	                            return true;
+	                           } else {
+	                            if($sender->hasPermission("braw.command.saypopup")){
+	                                 $online = $this->getServer()->getOnlinePlayers();
+	                                 $args = str_replace("{line}", "\n", $args);
+	                                 $args = str_replace("&", "§", $args);
+	                                 $args = str_replace("fuck", "****", $args);
+	                                 $args = str_replace("shit", "****", $args);
+	                                 $online->sendPopup(implode(" ",$args));
+	                                 $sender->sendMessage("§7§l[SayPopup]§r§7 Popup (" . implode(" ",$args) . ")§a has been sayed!");
+	                              }
+	                            }
+	                           }
+                  }
+          }
+	                           }
                   }
           }
           public function onDisable() {

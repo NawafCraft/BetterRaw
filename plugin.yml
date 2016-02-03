@@ -1,9 +1,9 @@
 name: BetterRaw
 author: Ad5001
-version: "0.2"
+version: "1.0"
 api: 1.13.0
 main: Ad5001\BetterRaw\Main
-website: http://ad5001.tk
+website: http://ad5001.weebly.com/betterraw
 
 description: Custom raw messages plugin for new api
 commands:
@@ -17,11 +17,6 @@ commands:
   usage: "§a/tellworldraw <world> <message...>"
   permission: braw.command.tellworldraw
   aliases: [twr]
- saygmraw:
-  description: "§6Display in the chat of every players in a specific gamemode a custom raw message"
-  usage: "§a/saygmraw <world> <message...>"
-  permission: braw.command.saygmraw
-  aliases: [sgmr]
  tip:
   description: "§6Display a tip to a specific player"
   usage: "§a/tip <world> <message...>"
@@ -46,6 +41,21 @@ commands:
   usage: "§a/tellgroupraw <group> <message...>"
   permission: braw.command.tellgroupraw
   aliases: [tgr]
+ sayraw:
+  description: "§6This is a tellraw command like in PC. Display in the chat of a every player a custom raw message"
+  usage: "§a/sayraw <message...>"
+  permission: braw.command.sayraw
+  aliases: [sr]
+ saytip:
+  description: "§6Display a tip to everyone"
+  usage: "§a/saytip <message...>"
+  permission: braw.command.saytip
+  aliases: [st]
+ saypopup:
+  description: "§6Display a popup to everyone"
+  usage: "§a/saypopup <message...>"
+  permission: braw.command.saypopup
+  aliases: [sp]
 permissions:
    braw.command.tellraw:
     default: op
@@ -53,9 +63,6 @@ permissions:
    braw.command.tellworldraw:
     default: op
     description: "§6Display in the chat of every players in a specific world a custom raw message"
-   braw.command.saygmraw:
-    default: op
-    description: "§6Display in the chat of every players in a specific gamemode a custom raw message"
    braw.command.tip:
     default: op
     description: "§6Display a popup to a specific player"
@@ -68,4 +75,11 @@ permissions:
    braw.command.tipworld:
     default: op
     description: "§6Display a tip to everyone in a specific world"
+   braw.command.saypopup:
+    default: op
+    description: "§6Display a popup to everyone"
+   braw.command.saytip:
+    default: op
+    description: "§6Display a tip to everyone"
+
 ...
