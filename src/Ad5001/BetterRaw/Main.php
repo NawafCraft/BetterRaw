@@ -148,7 +148,7 @@ use pocketmine\plugin\PluginBase;
                            } else {
                              if($sender->hasPermission("braw.command.tipworld")){
                                if(!$this->getServer()->isLevelGenerated($args[0])) {
-                                 $sender->("§l§4[Error]§r§4 Level not found");
+                                 $sender->sendTip("§l§4[Error]§r§4 Level not found");
                                } else {
                                foreach($this->getServer()->getLevelByName($args[0])->getPlayers() as $worldplayers){
                                  $levelname = $args[0];
@@ -178,7 +178,7 @@ use pocketmine\plugin\PluginBase;
                                $group = $args[0];
                                $pl = $this->purePerms->getPPGroup()->getUsers($group);
                                if($pl == null) {
-                                 $sender->("§l§4[Error]§r§4 Group not found.");
+                                 $sender->sendMessage("§l§4[Error]§r§4 Group not found.");
                                } else {
                                  unset($args[0]);
                                  $args = str_replace("{line}", "\n", $args);
@@ -239,13 +239,7 @@ use pocketmine\plugin\PluginBase;
 	                              }
 	                            }
 	                           }
-                  }
-          }
-	                           }
-                  }
-          }
-          public function onDisable() {
-                 $this->getLogger()->info("\nBetterRaw has been disable!");
+		}
           }
                     public function onEnable() {
                  $this->getLogger()->info("BetterRaw has been enable!\nCommands:\n- /tellraw <player> <message...>\n- /tellworldraw <world> <message...>\n- /tip <player> <message...>\n- /tipworld <world> <message...>\n- /popup <player> <message...>\n- /popupworld <world> <message...>");
