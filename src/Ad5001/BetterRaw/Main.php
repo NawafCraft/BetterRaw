@@ -238,7 +238,6 @@ use pocketmine\plugin\PluginBase;
 	                                 $sender->sendMessage("§7§l[SayPopup]§r§7 Popup (" . implode(" ",$args) . ")§a has been sayed!");
 	                              }
 	                            }
-	                           }
 		}
           }
                     public function onEnable() {
