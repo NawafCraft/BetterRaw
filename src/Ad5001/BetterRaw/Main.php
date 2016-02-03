@@ -197,13 +197,12 @@ use pocketmine\plugin\PluginBase;
 	                            return true;
 	                           } else {
 	                            if($sender->hasPermission("braw.command.sayraw")){
-	                                 $online = $this->getServer()->getOnlinePlayers();
 	                                 $args = str_replace("{line}", "\n", $args);
 	                                 $args = str_replace("&", "§", $args);
 	                                 $args = str_replace("fuck", "****", $args);
 	                                 $args = str_replace("shit", "****", $args);
 	                                 $online->sendMessage(implode(" ",$args));
-	                                 $sender->sendMessage("§6§l[Sayraw]§r§6 Message (" . implode(" ",$args) . ")§a has been sayed!");
+	                                 $sender->broadcastMessage("§6§l[Sayraw]§r§6 Message (" . implode(" ",$args) . ")§a has been sayed!");
 	                              }
 	                            }	                
                                 case "saytip":
@@ -213,13 +212,12 @@ use pocketmine\plugin\PluginBase;
 	                            return true;
 	                           } else {
 	                            if($sender->hasPermission("braw.command.saytip")){
-	                                 $online = $this->getServer()->getOnlinePlayers();
 	                                 $args = str_replace("{line}", "\n", $args);
 	                                 $args = str_replace("&", "§", $args);
 	                                 $args = str_replace("fuck", "****", $args);
 	                                 $args = str_replace("shit", "****", $args);
 	                                 $online->sendTip(implode(" ",$args));
-	                                 $sender->sendMessage("§9§l[SayTip]§r§9 Tip (" . implode(" ",$args) . ")§a has been sayed!");
+	                                 $sender->broadcastMessage("§9§l[SayTip]§r§9 Tip (" . implode(" ",$args) . ")§a has been sayed!");
 	                              }
 	                            }
 			case "saypopup":
@@ -229,13 +227,12 @@ use pocketmine\plugin\PluginBase;
 	                            return true;
 	                           } else {
 	                            if($sender->hasPermission("braw.command.saypopup")){
-	                                 $online = $this->getServer()->getOnlinePlayers();
 	                                 $args = str_replace("{line}", "\n", $args);
 	                                 $args = str_replace("&", "§", $args);
 	                                 $args = str_replace("fuck", "****", $args);
 	                                 $args = str_replace("shit", "****", $args);
 	                                 $online->sendPopup(implode(" ",$args));
-	                                 $sender->sendMessage("§7§l[SayPopup]§r§7 Popup (" . implode(" ",$args) . ")§a has been sayed!");
+	                                 $sender->broadcastMessage("§7§l[SayPopup]§r§7 Popup (" . implode(" ",$args) . ")§a has been sayed!");
 	                              }
 	                            }
 		}
