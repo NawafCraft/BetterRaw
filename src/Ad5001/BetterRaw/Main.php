@@ -190,51 +190,54 @@ use pocketmine\plugin\PluginBase;
                                }
                              }
                              }
-	                case "sayraw":
-	                           // sayraw command
-	                          if(count($args) < 1){
-	                            $sender->sendMessage("§4Usage: /sayraw <message...>");
-	                            return true;
-	                           } else {
-	                            if($sender->hasPermission("braw.command.sayraw")){
-	                                 $args = str_replace("{line}", "\n", $args);
-	                                 $args = str_replace("&", "§", $args);
-	                                 $args = str_replace("fuck", "****", $args);
-	                                 $args = str_replace("shit", "****", $args);
-	                                 $online->sendMessage(implode(" ",$args));
-	                                 $sender->broadcastMessage("§6§l[Sayraw]§r§6 Message (" . implode(" ",$args) . ")§a has been sayed!");
-	                              }
-	                            }	                
-                                case "saytip":
-	                           // saytip command
-	                          if(count($args) < 1){
-	                            $sender->sendMessage("§4Usage: /saytip <message...>");
-	                            return true;
-	                           } else {
-	                            if($sender->hasPermission("braw.command.saytip")){
-	                                 $args = str_replace("{line}", "\n", $args);
-	                                 $args = str_replace("&", "§", $args);
-	                                 $args = str_replace("fuck", "****", $args);
-	                                 $args = str_replace("shit", "****", $args);
-	                                 $online->sendTip(implode(" ",$args));
-	                                 $sender->broadcastMessage("§9§l[SayTip]§r§9 Tip (" . implode(" ",$args) . ")§a has been sayed!");
-	                              }
-	                            }
-			case "saypopup":
-	                           // sayraw command
-	                          if(count($args) < 1){
-	                            $sender->sendMessage("§4Usage: /saypopup <message...>");
-	                            return true;
-	                           } else {
-	                            if($sender->hasPermission("braw.command.saypopup")){
-	                                 $args = str_replace("{line}", "\n", $args);
-	                                 $args = str_replace("&", "§", $args);
-	                                 $args = str_replace("fuck", "****", $args);
-	                                 $args = str_replace("shit", "****", $args);
-	                                 $online->sendPopup(implode(" ",$args));
-	                                 $sender->broadcastMessage("§7§l[SayPopup]§r§7 Popup (" . implode(" ",$args) . ")§a has been sayed!");
-	                              }
-	                            }
+		 	                case "sayraw":
+		 	                           // sayraw command
+		 	                          if(count($args) < 1){
+		 	                            $sender->sendMessage("§4Usage: /sayraw <message...>");
+		 	                            return true;
+		 	                           } else {
+		 	                            if($sender->hasPermission("braw.command.sayraw")){
+		 	                                 $online = $this->getServer();
+		 	                                 $args = str_replace("{line}", "\n", $args);
+		 	                                 $args = str_replace("&", "§", $args);
+		 	                                 $args = str_replace("fuck", "****", $args);
+		 	                                 $args = str_replace("shit", "****", $args);
+		 	                                 $online->broadcastMessage(implode(" ",$args));
+		 	                                 $sender->sendMessage("§6§l[Sayraw]§r§6 Message (" . implode(" ",$args) . ")§a has been sayed!");
+		 	                              }
+		 	                            }	                
+		                                 case "saytip":
+		 	                           // saytip command
+		 	                          if(count($args) < 1){
+		 	                            $sender->sendMessage("§4Usage: /saytip <message...>");
+		 	                            return true;
+		 	                           } else {
+		 	                            if($sender->hasPermission("braw.command.saytip")){
+		 	                                 $online = $this->getServer();
+		 	                                 $args = str_replace("{line}", "\n", $args);
+		 	                                 $args = str_replace("&", "§", $args);
+		 	                                 $args = str_replace("fuck", "****", $args);
+		 	                                 $args = str_replace("shit", "****", $args);
+		 	                                 $online->broadcstTip(implode(" ",$args));
+		 	                                 $sender->sendMessage("§9§l[SayTip]§r§9 Tip (" . implode(" ",$args) . ")§a has been sayed!");
+		 	                              }
+		 	                            }
+		 			case "saypopup":
+		 	                           // sayraw command
+		 	                          if(count($args) < 1){
+		 	                            $sender->sendMessage("§4Usage: /saypopup <message...>");
+		 	                            return true;
+		 	                           } else {
+		 	                            if($sender->hasPermission("braw.command.saypopup")){
+		 	                                 $online = $this->getServer();
+		 	                                 $args = str_replace("{line}", "\n", $args);
+		 	                                 $args = str_replace("&", "§", $args);
+		 	                                 $args = str_replace("fuck", "****", $args);
+		 	                                 $args = str_replace("shit", "****", $args);
+		 	                                 $online->broadcastPopup(implode(" ",$args));
+		 	                                 $sender->sendMessage("§7§l[SayPopup]§r§7 Popup (" . implode(" ",$args) . ")§a has been sayed!");
+		 	                              }
+		 	                            }
 		}
           }
                     public function onEnable() {
