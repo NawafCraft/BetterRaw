@@ -75,6 +75,9 @@ permissions:
    braw.command.tipworld:
     default: op
     description: "§6Display a tip to everyone in a specific world"
+   braw.command.sayraw:
+    default: op
+    description: "§6Display a raw message to everyone"
    braw.command.saypopup:
     default: op
     description: "§6Display a popup to everyone"
