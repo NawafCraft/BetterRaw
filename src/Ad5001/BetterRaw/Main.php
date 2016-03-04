@@ -15,6 +15,7 @@ use pocketmine\event\Listener;
 use pocketmine\level\Level;
 use pocketmine\Player;
 use pocketmine\IPlayer;
+use Ad5001\BetterRaw\TimerPopup;
 use pocketmine\server;
 use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;
@@ -38,6 +39,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $player->sendMessage(implode(" ",$args));
+								 $this->getServer()->getLogger()->info("§6" . $sender->getName() . " tellrawed " . $player->getName() . " (" . implode(" ",$args) . ")");
                                  $sender->sendMessage("§a§l[Tellraw]§r§a Message (" . implode(" ",$args) . ")§a has been send to " . $player->getName() . "!");
                               }
                             }
@@ -62,6 +64,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $worldplayers->sendMessage(implode(" ",$args));
+								 $this->getServer()->getLogger()->info("§6" . $sender->getName() . " sent a message on world :" . $levelname . " (" . implode(" ",$args) . ")");
                                  $sender->sendMessage("§b§l[TellWorldRaw]§r§b Message (" . implode(" ",$args) . ")§b has been send on world '" . $levelname . "' !");
                                }
                                }
@@ -86,6 +89,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $player->sendTip(implode(" ",$args));
+								 $this->getServer()->getLogger()->info("§6" . $sender->getName() . " sent a tip to " . $player->getName() . " (" . implode(" ",$args) . ")");
                                  $sender->sendMessage("§4§l[Tip]§r§4 Tip (" . implode(" ",$args) . ")§4 has been send to " . $player->getName() . "!");
                               }
                             }
@@ -109,6 +113,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $player->sendPopup(implode(" ",$args));
+								 $this->getServer()->getLogger()->info("§6" . $sender->getName() . " sent a popup to " . $player->getName() . " (" . implode(" ",$args) . ")");
                                  $sender->sendMessage("§e§l[Popup]§r§e Popup (" . implode(" ",$args) . ")§e has been send to " . $player->getName() . "!");
                               }
                             }
@@ -133,6 +138,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $worldplayers->sendPopup(implode(" ",$args));
+								 $this->getServer()->getLogger()->info("§6" . $sender->getName() . " sent a popup on world :" . $levelname . " (" . implode(" ",$args) . ")");
                                  $sender->sendMessage("§d§l[PopupWorld]§r§d Popup (" . implode(" ",$args) . ")§d has been send on world '" . $levelname . "' !");
                                }
                                }
@@ -158,6 +164,7 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
                                  $worldplayers->sendTip(implode(" ",$args));
+								 $this->getServer()->getLogger()->info("§6" . $sender->getName() . " sent a tip on world :" . $levelname . " (" . implode(" ",$args) . ")");
                                  $sender->sendMessage("§c§l[TipWorld]§r§c Tip (" . implode(" ",$args) . ")§c has been send on world '" . $levelname . "' !");
                                }
                                }
@@ -165,32 +172,7 @@ use pocketmine\plugin\PluginBase;
                              return true;
                              break;
                            }
-                           case "tellgroupraw":
-                            $purePerms = $this->getServer()->getPluginManager()->getPlugin("PurePerms");
-                             if(count($args) < 2){
-                            $sender->sendMessage("§4Usage: /tellgroupraw <group> <message...>");
-                            return true;
-                             } elseif($purePerms == null){
-                               $sender->sendMessage("§l§4[Error]§r§4 PurePerms not found");
-                             } else {
-                             if($sender->hasPermission("braw.command.tellgroupraw")){
-                               $player = $this->getServer()->getPlayer("Test");
-                               $group = $args[0];
-                               $pl = $this->purePerms->getPPGroup()->getUsers($group);
-                               if($pl == null) {
-                                 $sender->sendMessage("§l§4[Error]§r§4 Group not found.");
-                               } else {
-                                 unset($args[0]);
-                                 $args = str_replace("{line}", "\n", $args);
-                                 $args = str_replace("&", "§", $args);
-                                 $args = str_replace("fuck", "****", $args);
-                                 $args = str_replace("shit", "****", $args);
-                                 $pl->sendMessage(implode(" ",$args));
-                                 $sender->sendMessage("§9§l[TellGroupRaw]§r§9 Tip (" . implode(" ",$args) . ")§9 has been send to group '" . $group . "'");
-                               }
-                             }
-                             }
-case "sayraw":
+						   case "sayraw":
 		 	                           // sayraw command
 		 	                          if(count($args) < 1){
 		 	                            $sender->sendMessage("§4Usage: /sayraw <message...>");
@@ -202,10 +184,13 @@ case "sayraw":
 		 	                                 $args = str_replace("fuck", "****", $args);
 		 	                                 $args = str_replace("shit", "****", $args);
 		 	                                 $this->getServer()->broadcastMessage(implode(" ",$args));
+											 $this->getServer()->getLogger()->info("§6" . $sender->getName() . " send a message to everyone in the server (" . implode(" ",$args) . ")");
 		 	                                 $sender->sendMessage("§6§l[Sayraw]§r§6 Message (" . implode(" ",$args) . ")§6 has been sayed!");
 		 	                              }
-		 	                            }	                
-		                                 case "saytip":
+		 	                            }
+										return true;
+										break;
+						   case "saytip":
 		 	                           // saytip command
 		 	                          if(count($args) < 1){
 		 	                            $sender->sendMessage("§4Usage: /saytip <message...>");
@@ -217,10 +202,13 @@ case "sayraw":
 		 	                                 $args = str_replace("fuck", "****", $args);
 		 	                                 $args = str_replace("shit", "****", $args);
 		 	                                 $this->getServer()->broadcastTip(implode(" ",$args));
+											 $this->getServer()->getLogger()->info("§6" . $sender->getName() . " send a tip to everyone in the server (" . implode(" ",$args) . ")");
 		 	                                 $sender->sendMessage("§9§l[SayTip]§r§9 Tip (" . implode(" ",$args) . ")§9 has been sayed!");
 		 	                              }
 		 	                            }
-		 			case "saypopup":
+										return true;
+										break;
+		 			       case "saypopup":
 		 	                           // sayraw command
 		 	                          if(count($args) < 1){
 		 	                            $sender->sendMessage("§4Usage: /saypopup <message...>");
@@ -232,13 +220,16 @@ case "sayraw":
 		 	                                 $args = str_replace("fuck", "****", $args);
 		 	                                 $args = str_replace("shit", "****", $args);
 		 	                                 $this->getServer()->broadcastPopup(implode(" ",$args));
-		 	                                 $sender->sendMessage("§7§l[SayPopup]§r§7 Popup (" . implode(" ",$args) . ")§7 has been sayed!");
+											 $this->getServer()->getLogger()->info("§6" . $sender->getName() . " send a popup to everyone in the server (" . implode(" ",$args) . ")");
+		 	                                 $sender->sendMessage("§2§l[SayPopup]§r§2 Popup (" . implode(" ",$args) . ")§2 has been sayed!");
 		 	                              }
 		 	                            }
-		}
+										return true;
+										break;
+			     }
           }
                     public function onEnable() {
-                 $this->getLogger()->info("BetterRaw has been enable!\nCommands:\n- /tellraw <player> <message...>\n- /tellworldraw <world> <message...>\n- /tip <player> <message...>\n- /tipworld <world> <message...>\n- /popup <player> <message...>\n- /popupworld <world> <message...>");
+                 $this->getLogger()->info("BetterRaw has been enable!\nCommands:\n- /tellraw <player> <message...>\n- /tellworldraw <world> <message...>\n- /tip <player> <message...>\n- /tipworld <world> <message...>\n- /popup <player> <message...>\n- /popupworld <world> <message...>\n- /sayraw <message...>\n- /saypopup <message...>\n- /saytip <message...>");
                  $this->purePerms = $this->getServer()->getPluginManager()->getPlugin("PurePerms");
           }
    }
