@@ -1,0 +1,53 @@
+---
+# Config for BetterRaw
+
+# Set a command here to be executed in the console
+# when a command of BetterRaw is executed
+# Use {player} to selects persons that have been selected (for tellraw, popup & tip)
+# Use {world} to select the world that players has been selected (for tellwordraw, popupword & tipworld)
+# Use {sender} to select the command sender
+TellrawCmd: "tell {sender} &6No command selected (tellrawed player: {player})"
+TellWorldRawCmd: "tell {sender} &6No command selected (tellrawed world: {world})"
+PopupCmd: "tell {sender} &6No command selected (selected player: {player})"
+PopupWorldCmd: "tell {sender} &6No command selected (selected world: {world})"
+TipCmd: "tell {sender} &6No command selected (selected player: {player})"
+TipWorldCmd: "tell {sender} &6No command selected (selected world: {world})"
+SayrawCmd: "tell {sender} &6No command selected"
+SaypopupCmd: "tell {sender} &6No command selected"
+SaytipCmd: "tell {sender} &6No command selected"
+CkickCmd: "tell {sender} &6No command selected (kicked player: {player})"
+
+# Here is the message sent to the sender.
+# Use {player} to selects persons that have been selected (for tellraw, popup & tip)
+# Use {world} to select the world that players has been selected (for tellwordraw, popupword & tipworld)
+# Use {sender} to select the command sender
+# Use {message} to select the message
+TellrawMSG: "Message ({message})&a has been send to {player}!"
+TellworldrawMSG: "Message ({message})&b has been send on world {world}!"
+TipMSG: "Tip ({message})&4 has been send to {player}!"
+TipworldMSG: "Tip ({message})&c has been send on world {world}!"
+PopupMSG: "Popup ({message})&e has been send to {player}!"
+PopupworldMSG: "Popup ({message})&d has been send on world {world}!"
+SayrawMSG: "Message ({message})&a has been broadcasted!"
+SaytipMSG: "Tip ({message})&4 has been broadcasted!"
+SaypopupMSG: "Popup ({message})&e has been broadcasted!"
+CkickMSG: "§1You have kicked {player} : {reason}"
+
+# Replace for BetterRaw
+
+# In this config, you can replace some word/messaage with other word or sentence in the message sent to the player in every command of BetterRaw.
+# You can do as multiple replace as you want with adding or removing one each time to the number after the "Replace" and the "ReplaceWith"
+# Example :
+# Replace1: "Hi"
+# ReplaceWith1: "Hello"
+# In that case, every "Hi" in the message will turn into Hello!
+# Do NOT skip any number or every replace after the skiped one won't be executed.
+
+
+# Change replaces here:
+Replace1: ""
+ReplaceWith1: ""
+
+Replace2: ""
+ReplaceWith2: ""
+...

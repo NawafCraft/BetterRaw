@@ -1,9 +1,9 @@
 name: BetterRaw
 author: Ad5001
-version: "1.0"
+version: "1.7"
 api: 1.13.0
 main: Ad5001\BetterRaw\Main
-website: http://ad5001.weebly.com/betterraw
+website: http://ad5001.weebly.com
 
 description: Custom raw messages plugin for new api
 commands:
@@ -36,11 +36,6 @@ commands:
   usage: "§a/tipworld <world> <message...>"
   permission: braw.command.tipworld
   aliases: [tw]
- tellgroupraw:
-  description: "§6Display in the chat of every players in a specific group a custom raw message"
-  usage: "§a/tellgroupraw <group> <message...>"
-  permission: braw.command.tellgroupraw
-  aliases: [tgr]
  sayraw:
   description: "§6This is a tellraw command like in PC. Display in the chat of a every player a custom raw message"
   usage: "§a/sayraw <message...>"
@@ -56,6 +51,11 @@ commands:
   usage: "§a/saypopup <message...>"
   permission: braw.command.saypopup
   aliases: [sp]
+ ckick:
+  description: "§6Kick a specific player a custom raw message without the kicked by admin"
+  usage: "§a/ckick <player> <reason...>"
+  permission: braw.command.ckick
+  aliases: [ck]
 permissions:
    braw.command.tellraw:
     default: op
@@ -84,5 +84,8 @@ permissions:
    braw.command.saytip:
     default: op
     description: "§6Display a tip to everyone"
+   braw.command.ckick:
+    default: op
+    description: "§6Kick a specific player a custom raw message without the kicked by admin"
 
 ...
