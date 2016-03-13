@@ -3,7 +3,7 @@
 
 A simple plugin that add raw commands                         
 WIP ;)
-<a href="https://forums.pocketmine.net/plugins/betterraw.1715/">Download it on pocketmine :)</a>
+<a href="http://forums.imagicalmine.net/plugins/betterraw.53/">Download it on imagicalmine :)</a>
 ###• Commands :
        - /tellraw <player> <message...>
        - /tellworldraw <world> <message...> 
@@ -11,6 +11,9 @@ WIP ;)
        - /tipworld <world> <message...>
        - /popup <player> <message...>
        - /popupworld <world> <message...>
+       - /sayraw <message...>
+       - /saytip <message...>
+       - /saypopup <message...>
 ####Tellraw
 Tell a player a raw message.
 Exemple > If you type "/tellraw Steve Hi, I'm using tellraw :)"                        
@@ -39,9 +42,23 @@ Hi, I'm using popup :)
 ####PopupWorld
 Send a popup to everyone in a specific world                      
   Exemple > If you type "/popupworld world Hi, I'm using popupworld :)"                    
-  That will display in the a litle bit higher than everyone inventory in world "world" :                         
+  That will display a litle bit higher than everyone inventory in world "world" :                         
   Hi, I'm using popupworld :)
+####Sayraw
+Say everyone a raw message.
+Exemple > If you type "/sayraw Hey, I'm using sayraw :)"                        
+That will display on everyone chat :                       
+Hi, I'm using sayraw :)    
+####Saytip
+Send to everyone a tip.
+Exemple > If you type "/saytip Hey, I'm using saytip :)"                        
+That will display on everyone's middle of the screen :                       
+Hi, I'm using saytip :)
+####Saypopup
+Send to everyone a popup.
+Exemple > If you type "/saypopup Hey, I'm using saypopup :)"                        
+That will display on everyone a litle bit higher than their inventory :                       
+Hi, I'm using saypopup :)
 #•To do
-– Adding a custom message for the sender                                              
-– Adding everyone tellraw                                              
+– Adding a custom message for the sender                                           
                                
