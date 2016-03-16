@@ -14,6 +14,7 @@ WIP ;)
        - /sayraw <message...>
        - /saytip <message...>
        - /saypopup <message...>
+       - /ckick <player> <reason>
 ####Tellraw
 Tell a player a raw message.
 Exemple > If you type "/tellraw Steve Hi, I'm using tellraw :)"                        
@@ -59,6 +60,13 @@ Send to everyone a popup.
 Exemple > If you type "/saypopup Hey, I'm using saypopup :)"                        
 That will display on everyone a litle bit higher than their inventory :                       
 Hi, I'm using saypopup :)
+####Ckick
+Kick a player without the "Kicked by admin"
+Exemple > If you type "/ckick Steve Hey , I'm ckicking you"
+Steve will be kicked and he will see on his screen
+Hey , I'm ckicking you
+
 #•To do
-– Adding a custom message for the sender                                           
+– Fix bugs (if found)
+- Adding §k
                                
