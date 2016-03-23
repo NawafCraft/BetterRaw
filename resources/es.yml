@@ -1,0 +1,79 @@
+---
+# Config para BetterRaw
+# Esto es para hacer config restablece a un idioma. Vuelva a colocar la ResetLang para elegir el idioma (idiomas DISPONIBLE: Inglés (uso "en"), Le Français (Entrez "fr"), Deutch (eingeben "de"), Español (Entrar "ES"))
+ResetLang: ""
+
+# Establecer un  aquí para ser ejecutado en la consola
+# Cuando se ejecuta un  de BetterRaw
+# Uso {player} para selecciona personas que han sido seleccionados (por tellraw, emergente &propina)
+# Uso {world} para seleccionar el mundo que los jugadores ha sido seleccionada (por tellwordraw, popupworld &tipworld)
+# Uso {sender}  para seleccionar el  de comando
+TellrawCmd: "tell {sender}  &6No seleccionado remitente(reproductor tellrawed: {player})"
+TellWorldRawCmd: "tell {sender} &6No seleccionada (mundo tellrawed: {world})"
+PopupCmd: "tell {sender}  &6No seleccionado remitente (jugador seleccionado: {player})"
+PopupWorldCmd: "tell {sender} &6No seleccionada remitente (mundo seleccionado: {world})"
+TipCmd: "tell {sender}  6No seleccionado remitente (jugador seleccionado: {player})"
+TipWorldCmd: "tell {sender}   &6No seleccionada remitente (mundo seleccionado: {world})"
+SayrawCmd: "tell {sender}  &6No seleccionado"
+SaypopupCmd: "tell {sender}  &6No seleccionado"
+SaytipCmd: "tell {sender}  &6No seleccionado"
+
+CkickRawCmd: "tell {sender}  &6No seleccionado remitente (jugador expulsado: {player})"
+CbanCmd: "tell {sender}  &6No seleccionado remitente (reproductor prohibido: {player})"
+CbanIpCmd: "tell {sender}   &6No seleccionado remitente (prohibido jugador ip: {player})"
+CkickWorldCmd: "tell {sender}   &6No seleccionada remitente (mundo seleccionado: {world})"
+CkickAllCmd: "tell {sender}   &6No seleccionado remitente"
+# Uso {radius} para seleccionar el reproductor de radio
+TellRadiusRawCmd: "tell {sender}  &6No seleccionados remitente (radio tellrawed: {radius})"
+PopupRadiusCmd: "tell {sender}  &6No seleccionado remitente (radio seleccionado: {radius})"
+TipRadiusCmd: "tell {sender}  &6No seleccionado remitente (radio seleccionado: {radius})"
+CkickRadiusCmd: "tell {sender}  &6No seleccionado remitente (radio seleccionado: {radius})"
+
+# Aquí está el mensaje enviado al .
+# Uso {player} para selecciona personas que han sido seleccionados (por tellraw, emergente &propina)
+# Uso {world} para seleccionar el mundo que los jugadores ha sido seleccionada (por tellwordraw, popupword &tipworld)
+# Uso {message} para seleccionar el mensaje
+TellrawMSG: "Mensaje ({mensaje}) &una ha sido enviado a {player}!"
+TellworldrawMSG: "Mensaje ({mensaje}) &b fue añadido el mundo {world}!"
+TipMSG: "Tip ({mensaje}) &4 ha sido enviado a {player}!"
+TipworldMSG: "Tip ({mensaje}) &c fue añadido el mundo {world}!"
+PopupMSG: "emergente ({mensaje}) &e ha sido enviado a {player}!"
+PopupworldMSG: "emergente ({mensaje}) + D fue añadido el mundo {world}!"
+SayrawMSG: "Mensaje ({mensaje}) &6 han sido retransmitidos!"
+SaytipMSG: "Tip ({mensaje}) &4 han sido retransmitidos!"
+SaypopupMSG: "emergente ({mensaje}) &e ha sido retransmitidos!"
+# Uso {reason} para seleccionar razón
+CkickRawMSG: "&1Usted han pateado {player}: {reason}"
+CbanMSG: "&1Usted han prohibido {player}: {reason}"
+CbanIpMSG: "ip &1Usted han prohibido {player}: {reason}"
+CkickWorldMSG: "&1Usted haber pateado todos en el mundo {world}: {reason}"
+CkickAllMSG: "&1Usted haber pateado todo el mundo en el servidor: {reason}"
+# Uso {radius} para seleccionar el radio
+TellRadiusRawMSG: "Usted tellrawed todos en un radio de radio de Mensaje:. {message}"
+PopupRadiusMSG: "Se envió un popup a todos en un radio de radio de Mensaje:. {message}"
+TipRadiusMSG: "Se envió una punta a todos en un radio de radio de Mensaje:. {message}"
+CkickRadiusMSG: "Se dio una patada a todos en un radio de radio de razón:. {reason}"
+
+# * NO modifique que *
+LastBanMSG: ""
+LastBanPL: ""
+
+
+# Vuelva a BetterRaw
+
+# En esta configuración, se puede sustituir alguna palabra / messaage con otra palabra o frase en el mensaje enviado al jugador en cada orden de BetterRaw.
+# Se puede hacer como múltiples sustituir como desee con la adición o eliminación de uno cada vez que el número después de la "Reemplazar" &el "Vuelvaa"
+# Ejemplo:
+# Replace1: "Hola"
+# ReplaceWith1: "Hola"
+# En ese caso, cada "Hola" en el mensaje se convertirá en ¡Hola!
+# No se salte cualquier número o cada Cambiar después no se ejecutará la omitida.
+
+
+# Cambio reemplaza aquí:
+Replace1: ""
+ReplaceWith1: ""
+
+Replace2: ""
+ReplaceWith2: ""
+...

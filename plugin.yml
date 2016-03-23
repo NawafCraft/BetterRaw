@@ -1,177 +1,178 @@
-<<<<<<< HEAD
 name: BetterRaw
 author: Ad5001
-version: "1.7"
-api: 1.13.0
+version: "2.0"
+api: 1.14.0
 main: Ad5001\BetterRaw\Main
 website: http://ad5001.weebly.com
 
 description: Custom raw messages plugin for new api
 commands:
+ betterrawlang:
+  description: "Change BetterRaw language avaliable languages: English(use en), le Français(entrez fr), Deutch(eingeben de), Español(entrar es)"
+  usage: "/betterrawlang <lang>"
+  permission: braw.command.betterrawlang
+  aliases: [brl]
+ loadsigns:
+  description: "Load all BetterRaw signs [INDEV DO NOT USE IT]"
+  usage: "/loadsigns"
+  permission: braw.command.loadsigns
+  aliases: [ls]
  tellraw:
-  description: "§6This is a tellraw command like in PC. Display in the chat of a specific player a custom raw message"
-  usage: "§a/tellraw <player> <message...>"
+  description: "This is a tellraw command like in PC. Display in the chat of a specific player a custom raw message"
+  usage: "/tellraw <player> <message...>"
   permission: braw.command.tellraw
-  aliases: [tr]
+ floatingraw:
+  description: "Making a floating text centerred to your position [INDEV DO NOT USE IT]"
+  usage: "/floatingraw <message...>"
+  permission: braw.command.floatingraw
+  aliases: [fr]
  tellworldraw:
-  description: "§6Display in the chat of every players in a specific world a custom raw message"
-  usage: "§a/tellworldraw <world> <message...>"
+  description: "Display in the chat of every players in a specific world a custom raw message"
+  usage: "/tellworldraw <world> <message...>"
   permission: braw.command.tellworldraw
   aliases: [twr]
  tip:
-  description: "§6Display a tip to a specific player"
-  usage: "§a/tip <world> <message...>"
+  description: "Display a tip to a specific player"
+  usage: "/tip <player> <message...>"
   permission: braw.command.tip
  popup:
-  description: "§6Display a popup to a specific player"
-  usage: "§a/popup <world> <message...>"
+  description: "Display a popup to a specific player"
+  usage: "/popup <world> <message...>"
   permission: braw.command.popup
   aliases: [pop]
  popupworld:
-  description: "§6Display a popup to everyone in a specific world"
-  usage: "§a/popupworld <world> <message...>"
+  description: "Display a popup to everyone in a specific world"
+  usage: "/popupworld <world> <message...>"
   permission: braw.command.popupworld
   aliases: [pw]
  tipworld:
-  description: "§6Display a tip to everyone in a specific world"
-  usage: "§a/tipworld <world> <message...>"
+  description: "Display a tip to everyone in a specific world"
+  usage: "/tipworld <world> <message...>"
   permission: braw.command.tipworld
   aliases: [tw]
  sayraw:
-  description: "§6This is a tellraw command like in PC. Display in the chat of a every player a custom raw message"
-  usage: "§a/sayraw <message...>"
+  description: "This is a tellraw command like in PC. Display in the chat of a every player a custom raw message"
+  usage: "/sayraw <message...>"
   permission: braw.command.sayraw
   aliases: [sr]
  saytip:
-  description: "§6Display a tip to everyone"
-  usage: "§a/saytip <message...>"
+  description: "Display a tip to everyone"
+  usage: "/saytip <message...>"
   permission: braw.command.saytip
   aliases: [st]
  saypopup:
-  description: "§6Display a popup to everyone"
-  usage: "§a/saypopup <message...>"
+  description: "Display a popup to everyone"
+  usage: "/saypopup <message...>"
   permission: braw.command.saypopup
   aliases: [sp]
  ckick:
-  description: "§6Kick a specific player a custom raw message without the kicked by admin"
-  usage: "§a/ckick <player> <reason...>"
-  permission: braw.command.ckick
-  aliases: [ck]
+  description: "Kick a specific player a custom raw message without the kicked by admin"
+  usage: "/ckick <player> <reason...>"
+  permission: braw.command.ckickraw
+  aliases: [ckr]
+ cban:
+  description: "Ban a specific player a custom raw message without the banned by admin"
+  usage: "/cban <player> <reason...>"
+  permission: braw.command.cban
+  aliases: [cb]
+ cban-ip:
+  description: "Banip a specific player a custom raw message without the IP banned"
+  usage: "/cban-ip <player> <reason...>"
+  permission: braw.command.cbanip
+  aliases: [cbi]
+ ckickworld:
+  description: "Kick everyone in a world with a custom raw message without the kicked by admin"
+  usage: "/ckickworld <world> <reason...>"
+  permission: braw.command.ckickworld
+  aliases: [ckw]
+ ckickall:
+  description: "Kick everyone in the server with a custom raw message without the kicked by admin"
+  usage: "/ckickall <reason...>"
+  permission: braw.command.ckickall
+  aliases: [cka]
+ tellradiusraw:
+  description: "Send a raw message to everyone in a specific radius of the sender"
+  usage: "/tellplradiusraw <radius> <message...>"
+  permission: braw.command.tellradiusraw
+  aliases: [trr]
+ popupradius:
+  description: "Send a popup to everyone in a specific radius of the sender"
+  usage: "/popupradius <radius> <message...>"
+  permission: braw.command.popupradius
+  aliases: [pr]
+ tipradius:
+  description: "Send a tip to everyone in a specific radius of the sender"
+  usage: "/tipradius <radius> <message...>"
+  permission: braw.command.tipradius
+  aliases: [tipr]
+ ckickradius:
+  description: "Kick everyone in a specific radius of the sender"
+  usage: "/ckickradius <radius> <message...>"
+  permission: braw.command.ckickradius
+  aliases: [ckra]
 permissions:
+   braw.command.loadsigns:
+    default: op
+    description: "Load all BetterRaw signs"
+   braw.command.betterrawlang:
+    default: op
+    description: "Change BetterRaw language avaliable languages: English(use en), le Français(entrez fr), Deutch(eingeben de), Español(entrar es)"
    braw.command.tellraw:
     default: op
-    description: "§6Send the player a raw message you want"
+    description: "Send the player a raw message you want"
+   braw.command.floatingraw:
+    default: op
+    description: "Making a floating text centered to your position [INDEV DO NOT USE IT]"
    braw.command.tellworldraw:
     default: op
-    description: "§6Display in the chat of every players in a specific world a custom raw message"
+    description: "Display in the chat of every players in a specific world a custom raw message"
    braw.command.tip:
     default: op
-    description: "§6Display a popup to a specific player"
+    description: "Display a popup to a specific player"
    braw.command.popup:
     default: op
-    description: "§6Display a popup to a specific player"
+    description: "Display a popup to a specific player"
    braw.command.popupworld:
     default: op
-    description: "§6Display a popup to everyone in a specific world"
+    description: "Display a popup to everyone in a specific world"
    braw.command.tipworld:
     default: op
-    description: "§6Display a tip to everyone in a specific world"
+    description: "Display a tip to everyone in a specific world"
    braw.command.sayraw:
     default: op
-    description: "§6Display a raw message to everyone"
+    description: "Display a raw message to everyone"
    braw.command.saypopup:
     default: op
-    description: "§6Display a popup to everyone"
+    description: "Display a popup to everyone"
    braw.command.saytip:
     default: op
-    description: "§6Display a tip to everyone"
-   braw.command.ckick:
+    description: "Display a tip to everyone"
+   braw.command.ckickraw:
     default: op
-    description: "§6Kick a specific player a custom raw message without the kicked by admin"
+    description: "Kick a specific player with a custom raw message without the kicked by admin"
+   braw.command.cban:
+    default: op
+    description: "Ban a specific player with a custom raw message without the banned by admin"
+   braw.command.cban-ip:
+    default: op
+    description: "Banip a specific player with a custom raw message without the IP banned"
+   braw.command.ckickworld:
+    default: op
+    description: "Kick everyone in a specific world with a custom raw message without the kicked by admin"
+   braw.command.ckickall:
+    default: op
+    description: "Kick everyone in the whole server with a custom raw message without the kicked by admin"
+   braw.command.tellradiusraw:
+    default: op
+    description: "Send a raw message to everyone in a specific radius of the sender"
+   braw.command.popupradius:
+    default: op
+    description: "Send a popup to everyone in a specific radius of the sender"
+   braw.command.tipradius:
+    default: op
+    description: "Send a tip to everyone in a specific radius of the sender"
+   braw.command.ckickradius:
+    default: op
+    description: "Kick everyone in a specific radius of the sender"
 
 ...
-=======
-name: BetterRaw
-author: Ad5001
-version: "1.1"
-api: 1.13.0
-main: Ad5001\BetterRaw\Main
-website: http://ad5001.weebly.com/betterraw
-
-description: Custom raw messages plugin for new api
-commands:
- tellraw:
-  description: "§6This is a tellraw command like in PC. Display in the chat of a specific player a custom raw message"
-  usage: "§a/tellraw <player> <message...>"
-  permission: braw.command.tellraw
-  aliases: [tr]
- tellworldraw:
-  description: "§6Display in the chat of every players in a specific world a custom raw message"
-  usage: "§a/tellworldraw <world> <message...>"
-  permission: braw.command.tellworldraw
-  aliases: [twr]
- tip:
-  description: "§6Display a tip to a specific player"
-  usage: "§a/tip <world> <message...>"
-  permission: braw.command.tip
- popup:
-  description: "§6Display a popup to a specific player"
-  usage: "§a/popup <world> <message...>"
-  permission: braw.command.popup
-  aliases: [pop]
- popupworld:
-  description: "§6Display a popup to everyone in a specific world"
-  usage: "§a/popupworld <world> <message...>"
-  permission: braw.command.popupworld
-  aliases: [pw]
- tipworld:
-  description: "§6Display a tip to everyone in a specific world"
-  usage: "§a/tipworld <world> <message...>"
-  permission: braw.command.tipworld
-  aliases: [tw]
- sayraw:
-  description: "§6This is a tellraw command like in PC. Display in the chat of a every player a custom raw message"
-  usage: "§a/sayraw <message...>"
-  permission: braw.command.sayraw
-  aliases: [sr]
- saytip:
-  description: "§6Display a tip to everyone"
-  usage: "§a/saytip <message...>"
-  permission: braw.command.saytip
-  aliases: [st]
- saypopup:
-  description: "§6Display a popup to everyone"
-  usage: "§a/saypopup <message...>"
-  permission: braw.command.saypopup
-  aliases: [sp]
-permissions:
-   braw.command.tellraw:
-    default: op
-    description: "§6Send the player a raw message you want"
-   braw.command.tellworldraw:
-    default: op
-    description: "§6Display in the chat of every players in a specific world a custom raw message"
-   braw.command.tip:
-    default: op
-    description: "§6Display a popup to a specific player"
-   braw.command.popup:
-    default: op
-    description: "§6Display a popup to a specific player"
-   braw.command.popupworld:
-    default: op
-    description: "§6Display a popup to everyone in a specific world"
-   braw.command.tipworld:
-    default: op
-    description: "§6Display a tip to everyone in a specific world"
-   braw.command.sayraw:
-    default: op
-    description: "§6Display a raw message to everyone"
-   braw.command.saypopup:
-    default: op
-    description: "§6Display a popup to everyone"
-   braw.command.saytip:
-    default: op
-    description: "§6Display a tip to everyone"
-
-...
->>>>>>> origin/master

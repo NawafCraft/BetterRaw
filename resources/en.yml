@@ -1,12 +1,12 @@
 ---
 # Config for BetterRaw
-# This is to make reset config to a language. Replace the ResetLang to chose the language (avalaible languages: English(use "en"), le Fran?ais(entrez "fr"), Deutch(eingeben "de"), Espa?ol(entrar "es"))
+# This is to make reset config to a language. Replace the ResetLang to chose the language (avalaible languages: English(use "en"), le Français(entrez "fr"), Deutch(eingeben "de"), Español(entrar "es"))
 ResetLang: ""
 
 # Set a command here to be executed in the console
 # when a command of BetterRaw is executed
 # Use {player} to selects persons that have been selected (for tellraw, popup & tip)
-# Use {world} to select the world that players has been selected (for tellwordraw, popupword & tipworld)
+# Use {world} to select the world that players has been selected (for tellwordraw, popupworld & tipworld)
 # Use {sender} to select the command sender
 TellrawCmd: "tell {sender} &6No command selected (tellrawed player: {player})"
 TellWorldRawCmd: "tell {sender} &6No command selected (tellrawed world: {world})"

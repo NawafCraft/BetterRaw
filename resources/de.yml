@@ -1,0 +1,79 @@
+---
+# Konfiguration zu BetterRaw
+# This is an make reset config an a language. Replace the ResetLang an chose the language (avalaible languages: English(Verwenden "en"), le Français(entrez "fr"), Deutch(eingeben "de"), Español(entrar "es"))
+ResetLang: ""
+
+# Setzen Sie einen Befehl hier in der Konsole ausgeführt werden
+#, Wenn ein Befehl von BetterRaw ausgeführt
+# Verwenden {player} Personen auswählt, die (für tellraw, Popup & Tip) ausgewählt wurden,
+# Verwenden {world}, um die Welt zu wählen, dass die Spieler gewählt wurde (für tellwordraw, popupword & tipworld)
+# Verwenden {sender} den Befehl Aussteller zu wählen
+TellrawCmd: "tell {sender} &6Keine Befehl wählen (tellraw Spieler: {player})"
+TellWorldRawCmd: "tell {sender} &6Keine command wählen (tellraw Welt: {world})"
+PopupCmd: "tell {sender} &6Keine Befehl wählen (ausgewählt Spieler: {player})"
+PopupWorldCmd: "tell {sender} &6Keine Befehl wählen (ausgewählt Welt: {world})"
+TipCmd: "tell {sender} &6Keine Befehl wählen (ausgewählt Spieler: {player})"
+TipWorldCmd: "tell {sender} &6Keine Befehl wählen (ausgewählt Welt: {world})"
+SayrawCmd: "tell {sender} &6Keine Befehl wählen"
+SaypopupCmd: "tell {sender} &6Keine Befehl wählen"
+SaytipCmd: "tell {sender} &6Keine Befehl wählen"
+
+CkickRawCmd: "tell {sender} &6Keine Befehl wählen (kicked Spieler: {player})"
+CbanCmd: "tell {sender} &6Keine Befehl wählen (banned Spieler: {player})"
+CbanIpCmd: "tell {sender} &6Keine Befehl wählen (banned ip Spieler: {player})"
+CkickWorldCmd: "tell {sender} &6Keine Befehl wählen (ausgewählt Welt: {world})"
+CkickAllCmd: "tell {sender} &6Keine Befehl wählen"
+# Verwenden {radius} an select the Spieler radius
+TellRadiusRawCmd: "tell {sender} &6Keine Befehl wählen (tellrawed radius: {radius})"
+PopupRadiusCmd: "tell {sender} &6Keine Befehl wählen (ausgewählt radius: {radius})"
+TipRadiusCmd: "tell {sender} &6Keine Befehl wählen (ausgewählt radius: {radius})"
+CkickRadiusCmd: "tell {sender} &6Keine Befehl wählen (ausgewählt radius: {radius})"
+
+# Here is the die Nachricht geschickt an the Aussteller.
+# Verwenden {player} an Spielers that hat ausgewählt wählen (zu tellraw, popup & tip)
+# Verwenden {world} an the Welt aus Spielers hat ausgewählt wählen (zu tellwordraw, popupword & tipworld)
+# Verwenden {message} an select the die Nachricht
+TellrawMSG: "Die Nachricht ({message})&a wurde gesendet an {player}!"
+TellworldrawMSG: "Die Nachricht ({message})&b geschickt wurde Welt {world}!"
+TipMSG: "Das tip ({message})&4 wurde gesendet an {player}!"
+TipworldMSG: "Das tip ({message})&c geschickt wurde Welt {world}!"
+PopupMSG: "Das popup ({message})&e wurde gesendet an {player}!"
+PopupworldMSG: "Das popup ({message})&d geschickt wurde Welt {world}!"
+SayrawMSG: "Die Nachricht ({message})&6 wurde ausgestrahlt!"
+SaytipMSG: "Das tip ({message})&4 wurde ausgestrahlt!"
+SaypopupMSG: "Das popup ({message})&e wurde ausgestrahlt!"
+# Verwenden {reason} an die Grund wählen
+CkickRawMSG: "&1Du habt {player} getrennen : {reason}"
+CbanMSG: "&1Du habt {player}Verbot : {reason}"
+CbanIpMSG: "&1Du habt banned ip {player} : {reason}"
+CkickWorldMSG: "&1Du habt alle Spielers im Welt {world} getrennen: {reason}"
+CkickAllMSG: "&1Du habt alle Spielers in die Server getrennen: {reason}"
+# Verwenden {radius} an das radius wählen
+TellRadiusRawMSG: "Du tellrawed everyone in a radius of {radius}. Nachricht: {message}"
+PopupRadiusMSG: "Du geschickt a popup everyone in a radius of {radius}. Nachricht: {message}"
+TipRadiusMSG: "Du geschickt a tip everyone in a radius of {radius}. Nachricht: {message}"
+CkickRadiusMSG: "Du kicked everyone in a radius of {radius}. Reason: {reason}"
+
+# *Du ändern NICHT dieses texte*
+LastBanMSG: ""
+LastBanPL: ""
+
+
+# Austauschen zu BetterRaw
+
+# In dieses Konfiguration, Du kannst etwas Wort/Nachricht mit andere Wort or geschicktence in die Nachricht geschickt an die Spieler in alle Befehl zu BetterRaw austauschen.
+# Du kannst das mehrere austauschen als U mit dem Hinzufügen möchten oder die Zahl hinter dem "Replace" und die "ReplaceWith" ein jedes Mal zu entfernen machen
+# Beispiel :
+# Replace1: "Hallo"
+# ReplaceWith1: "Guten Tag"
+# In dieses Fall, alle "Hallo" in die Nachrichtwird sich in Guten Tag!
+# Überspringen Sie nicht beliebig viele oder alle ersetzen, nachdem die übersprungenen ein nicht ausgeführt.
+
+
+# Austauschen Austausches:
+Replace1: ""
+ReplaceWith1: ""
+
+Replace2: ""
+ReplaceWith2: ""
+...

@@ -1,0 +1,79 @@
+---
+# Configuration de BetterRaw
+# This is to make reset config to a language. Replace the ResetLang to chose the language (avalaible languages: English(use "en"), le Français(entrez "fr"), Deutch(eingeben "de"), y Español(entrar "es"))
+ResetLang: ""
+
+# Entrez ci dessous les commandes à executer dans la console
+# lorsque une des commandes BetterRaw est executée
+# Entrez {player} pour selectionner le joueur ciblé par la commande (pour le tellraw, popup & tip)
+# Entrez {world} pour selectionner le monde ciblé par la commande (pour le tellwordraw, popupworld & tipworld)
+# Entrez {sender} pour séléctionner celui qui a executer la commande.
+TellrawCmd: "tell {sender} &6Aucune commande séléctionée (message envoyé à {player})"
+TellWorldRawCmd: "tell {sender} &6Aucune commande séléctionée (message envoyé à tout les joueurs du monde {world})"
+PopupCmd: "tell {sender} &6Aucune commande séléctionée (joueur ciblé: {player})"
+PopupWorldCmd: "tell {sender} &6Aucune commande séléctionée (monde ciblé: {world})"
+TipCmd: "tell {sender} &6Aucune commande séléctionée (joueur ciblé: {player})"
+TipWorldCmd: "tell {sender} &6Aucune commande séléctionée (monde ciblé: {world})"
+SayrawCmd: "tell {sender} &6Aucune commande séléctionée"
+SaypopupCmd: "tell {sender} &6Aucune commande séléctionée"
+SaytipCmd: "tell {sender} &6Aucune commande séléctionée"
+
+CkickRawCmd: "tell {sender} &6Aucune commande séléctionée (joueur déconnecté: {player})"
+CbanCmd: "tell {sender} &6Aucune commande séléctionée (joueur bannis: {player})"
+CbanIpCmd: "tell {sender} &6Aucune commande séléctionée (joueur bannis ip: {player})"
+CkickWorldCmd: "tell {sender} &6Aucune commande séléctionée (les joueurs du monde {world} ont été déconnecté)"
+CkickAllCmd: "tell {sender} &6Aucune commande séléctionée"
+# Entrez {radius} pour séléctionner le radius ciblé
+TellRadiusRawCmd: "tell {sender} &6Aucune commande séléctionée (Message envoyé tout les joueur dans le {radius})"
+PopupRadiusCmd: "tell {sender} &6Aucune commande séléctionée (radius ciblé: {radius})"
+TipRadiusCmd: "tell {sender} &6Aucune commande séléctionée (radius ciblé: {radius})"
+CkickRadiusCmd: "tell {sender} &6Aucune commande séléctionée (radius ciblé: {radius})"
+
+# Maintenant, c'est le message pour le joueur qui a executé la commande de BetterRaw.
+# Entrez {player} pour selectionner le joueur ciblé par la commande (pour le tellraw, popup & tip)
+# Entrez {world} pour selectionner le monde ciblé par la commande (pour le tellwordraw, popupword & tipworld)
+# Entrez {message} pour séléctionner
+TellrawMSG: "Le message ({message})&a a bien été envoyé à {player}!"
+TellworldrawMSG: "Le message ({message})&b a bien été envoyé à tout les joueur du monde {world}!"
+TipMSG: " Le Tip ({message})&4 a bien été envoyé à {player}!"
+TipworldMSG: "Le Tip ({message})&c a bien été envoyé à tout les joueur du monde {world}!"
+PopupMSG: "La Popup ({message})&e a bien été envoyé à {player}!"
+PopupworldMSG: " La Popup ({message})&d a bien été envoyé à tout les joueur du monde {world}!"
+SayrawMSG: "Le message ({message})&6 a été envoyé à tous les joueurs du serveur!"
+SaytipMSG: "Le Tip ({message})&4 a été envoyé à tous les joueurs du serveur!"
+SaypopupMSG: " La Popup ({message})&e a été envoyé à tous les joueurs du serveur!"
+# Entrez {reason} pour séléctionner la raison de la déconnection ou du bannissement
+CkickRawMSG: "&1Vous avez déconnecté {player} : {reason}"
+CbanMSG: "&1Vous avez bannis {player} : {reason}"
+CbanIpMSG: "&1Vous avez bannis ip {player} : {reason}"
+CkickWorldMSG: "&1Vous avez déconnecté tous les joueurs du monde {world} : {reason}"
+CkickAllMSG: "&1Vous avez déconnecté tous les joueurs du serveur : {reason}"
+# Entrez {radius} pour séléctionner le radius ciblé
+TellRadiusRawMSG: "Vous avez envoyé un message à tous les joueurs dans un radius de {radius} blocs. Message: {message}"
+PopupRadiusMSG: "Vous avez envoyé une popup à tous les joueurs dans un radius de {radius} blocs. Message: {message}"
+TipRadiusMSG: "Vous avez envoyé un tip à tous les joueurs dans un radius de {radius} blocs. Message: {message}"
+CkickRadiusMSG: "Vous avez déconneté tous les joueurs dans un radius de {radius} blocs. Reason: {reason}"
+
+# *Ne modifiez PAS ce qui est ce dessous*
+LastBanMSG: ""
+LastBanPL: ""
+
+
+# Replacement pour BetterRaw
+
+# Dans cette partie de la configuration, vous pouvez ajouter des remplacement de mot dans le message envoyé au joueur(s) dans chacune des commandes de BetterRaw
+# Vous pouvez ajouter autant de remplacement que vous voulez en ajoutant un "Replace" et un "ReplaceWith" avec le dernier chiffre utilisé et en y ajoutant 1.
+# Exemple :
+# Replace1: "Cc"
+# ReplaceWith1: "Salut"
+# Avec ceci, chaque "Cc" dans le message sera remplacé par un Salut.
+# Ne passez AUCUN chiffre car sinon chaque remplacement après celui ci ne seront pas pris en compte par le plugin
+
+
+# Modifiez les remplacements ici:
+Replace1: ""
+ReplaceWith1: ""
+
+Replace2: ""
+ReplaceWith2: ""
+...
