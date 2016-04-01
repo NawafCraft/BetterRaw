@@ -1,9 +1,9 @@
 name: BetterRaw
 author: Ad5001
-version: "2.0"
-api: 1.14.0
+version: "2.0_BUILD_#3"
+api: [1.14.0, 2.0.0]
 main: Ad5001\BetterRaw\Main
-website: http://ad5001.weebly.com
+website: http://ad5001.cf/BetterRaw.phar
 
 description: Custom raw messages plugin for new api
 commands:
@@ -12,17 +12,21 @@ commands:
   usage: "/betterrawlang <lang>"
   permission: braw.command.betterrawlang
   aliases: [brl]
- loadsigns:
-  description: "Load all BetterRaw signs [INDEV DO NOT USE IT]"
-  usage: "/loadsigns"
+ betterrawload:
+  description: "Load all BetterRaw signs and make that changes in config will be automaticly saved"
+  usage: "/betterrawload"
   permission: braw.command.loadsigns
-  aliases: [ls]
+  aliases: [brload]
+ news:
+  description: "Show ad5001's last news"
+  usage: "/news"
+  permission: braw.command.news
  tellraw:
   description: "This is a tellraw command like in PC. Display in the chat of a specific player a custom raw message"
   usage: "/tellraw <player> <message...>"
   permission: braw.command.tellraw
  floatingraw:
-  description: "Making a floating text centerred to your position [INDEV DO NOT USE IT]"
+  description: "Making a floating text centerred to your position"
   usage: "/floatingraw <message...>"
   permission: braw.command.floatingraw
   aliases: [fr]
@@ -111,6 +115,9 @@ commands:
   permission: braw.command.ckickradius
   aliases: [ckra]
 permissions:
+   braw.installpl:
+    default: op
+    description: "Install plugins from Ad5001"
    braw.command.loadsigns:
     default: op
     description: "Load all BetterRaw signs"
@@ -122,7 +129,7 @@ permissions:
     description: "Send the player a raw message you want"
    braw.command.floatingraw:
     default: op
-    description: "Making a floating text centered to your position [INDEV DO NOT USE IT]"
+    description: "Making a floating text centered to your position"
    braw.command.tellworldraw:
     default: op
     description: "Display in the chat of every players in a specific world a custom raw message"
@@ -174,5 +181,7 @@ permissions:
    braw.command.ckickradius:
     default: op
     description: "Kick everyone in a specific radius of the sender"
+   braw.command.news:
+    default: op
 
 ...

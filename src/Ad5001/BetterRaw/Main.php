@@ -19,43 +19,17 @@ use pocketmine\katana\Console;
 use pocketmine\IPlayer;
 use Ad5001\BetterRaw\SignTask;
 use Ad5001\BetterRaw\BanTask;
-use pocketmine\entity\Entity;
-use pocketmine\nbt\tag\Byte;
-use pocketmine\nbt\tag\Compound;
-use pocketmine\nbt\tag\Double;
-use pocketmine\nbt\tag\Enum;
-use pocketmine\nbt\tag\Short;
-use pocketmine\event\entity\EntitySpawnEvent;
+use Ad5001\BetterRaw\ConfigReloadTask;
+use Ad5001\BetterRaw\FloatingTask;
 use pocketmine\utils\TextFormat as C;
 use pocketmine\scheduler\PluginTask;
 use pocketmine\scheduler\ServerScheduler;
+use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\utils\Config;
 use pocketmine\math\Vector3;
-use pocketmine\level\sound\AnvilBreakSound;
-use pocketmine\level\sound\AnvilFallSound;
-use pocketmine\level\sound\AnvilUseSound;
-use pocketmine\level\sound\BatSound;
-use pocketmine\level\sound\BlazeShootSound;
-use pocketmine\level\sound\ButtonClickSound;
-use pocketmine\level\sound\ButtonReturnSound;
-use pocketmine\level\sound\ClickSound;
-use pocketmine\level\sound\DoorBumpSound;
-use pocketmine\level\sound\DoorCrashSound;
-use pocketmine\level\sound\DoorSound;
-use pocketmine\level\sound\EndermanTeleportSound;
-use pocketmine\level\sound\FizzSound;
-use pocketmine\level\sound\GhastShootSound;
-use pocketmine\level\sound\GhastSound;
-use pocketmine\level\sound\LaunchSound;
-use pocketmine\level\sound\NoteblockSound;
-use pocketmine\level\sound\PopSound;
-use pocketmine\level\sound\ZombieHealSound;
-use pocketmine\level\sound\ZombieInfectSound;
-use pocketmine\level\sound\Sound;
 use pocketmine\server;
-use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;
-   class Main extends PluginBase {
+   class Main extends PluginBase implements Listener {
           public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
                  switch($cmd->getName()) {
 					     case "betterrawlang":
@@ -114,46 +88,64 @@ use pocketmine\plugin\PluginBase;
 								 $randcolors = rand(0, 15);
 							     $color = [C::BLACK, C::BOLD, C::STRIKETHROUGH, C::BLUE, C::RESET, $colors[$randcolors]];
 								 $args = str_replace($lastcolor, implode("", $color), $args);
-								 
-								 $x = $sender->x;
-								 $y = $sender->y;
-								 $z = $sender->z;
-                                 $nbt = $this->makeNBT(implode(" ", $args), $sender->getYaw(), $sender->getPitch(), $x, $y, $z);
-                                 $float = Entity::createEntity("Chicken", $sender->getLevel()->getChunk($x >> 4, $z >> 4), $nbt);
-								 
-								 $command = $this->getConfig()->get("TellrawCmd");
+								 if(is_numeric($args[0]) and is_numeric($args[1]) and is_numeric($args[2])) {
+									 $x = $args[0];
+									 $y = $args[1] + 1;
+									 $z = $args[2];
+									 unset($args[0]);
+									 unset($args[1]);
+									 unset($args[2]);
+								 } else {
+								      $x = $sender->x;
+								      $y = $sender->y + 1;
+								      $z = $sender->z;
+								 }
+								 $level = $sender->getLevel();
+								 $level->addParticle(new \pocketmine\level\particle\FloatingTextParticle(new Vector3($x, $y, $z), implode(" ", $args)));
+								 $cfg = new Config($this->getDataFolder() . "floating.yml", Config::YAML);
+								 $id = $cfg->get("LastNumber") + 1;
+								 $cfg->set("X" . $id, $x);
+								 $cfg->set("Y" . $id, $y);
+								 $cfg->set("Z" . $id, $z);
+								 $cfg->set("Text" . $id, implode("", $args));
+								 $cfg->set("LastNumber", $id);
+								 $cfg->save();
+								 $command = $this->getConfig()->get("FloatingrawCmd");
 								 $command = str_replace("&", "§", $command);
                                  $command = str_replace("tellraw", "tell", $command);
                                  $command = str_replace("tellworldraw", "say", $command);
-								 $command = str_replace("{player}", $player->getName(), $command);
 								 $command = str_replace("{sender}", $sender->getName(), $command);
 								 $this->getServer()->dispatchCommand(new ConsoleCommandSender(), $command);
-								 $this->getServer()->getLogger()->info("§6" . $sender->getName() . " tellrawed " . $player->getName() . " (" . implode(" ",$args) . ")");
-								 $msg = $this->getConfig()->get("TellrawMSG");
+								 $this->getServer()->getLogger()->info("§6" . $sender->getName() . " added a floating text  (" . implode(" ",$args) . ")");
+								 $msg = $this->getConfig()->get("FloatingrawMSG");
 								 $msg = str_replace("&", "§", $msg);
 								 $msg = str_replace("{message}", implode(" ",$args), $msg);
-								 $msg = str_replace("{player}", $player->getName(), $msg);
 								 $msg = str_replace("{sender}", $sender->getName(), $msg);
-                                 $sender->sendMessage("§a§l[Tellraw]§r§a " . $msg);
+                                 $sender->sendMessage("§a§l[FloatingRaw]§r§a " . $msg);
                               }
                             }
                            }
                            return true;
                            break;
-					     case "loadsigns":
-						 $startsign = 0;
+					     case "betterrawload":
 						 if($sender instanceof Player) {
-							 if($startsign === 0) {
-								 $sender->sendMessage("§l§a[SignRaw]§r§a Loading ...");
+								 $sender->sendMessage("§l§a[BetterRaw]§r§a Loading ...");
 								 $this->getServer()->getScheduler()->scheduleRepeatingTask(new SignTask($this, $sender), 10);
-								 $startsign = 1;
 								 $sender->sendMessage("§l§a[SignRaw]§r§a Signs have been loaded !");
-						     } else {
-								 $sender->sendMessage("§l§4[SignRaw]§r§4 Signs are already loaded !");
-							 }
+								 $this->getServer()->getScheduler()->scheduleRepeatingTask(new ConfigReloadTask($this, $sender), 10);
+								 $sender->sendMessage("§l§a[ConfigRaw]§r§a You can change your config at any time, change will be INSTANTLY APPLIED");
+								 $this->getServer()->getScheduler()->scheduleRepeatingTask(new FloatingTask($this, $sender), 10);
+								 $sender->sendMessage("§l§a[FloatingRaw]§r§a Floating texts now reloading proprely !");
 						 } else {
-							 $sender->sendMessage("§l§4[SignRaw]§r§4 Please use this command in-game !");
+							 $sender->sendMessage("§l§4[BetterRaw]§r§4 Please use this command in-game !");
 						 }
+						 return true;
+						 break;
+						 case "news":
+					       if($this->getConfig()->get("TellNews") === "onCommand") {
+							   $news = file_get_contents("http://ad5001.cf/news.txt");
+							   $sender->sendMessage("Last news: \n" . $news);
+						    }
 						 return true;
 						 break;
                          case "tellraw":
@@ -173,6 +165,13 @@ use pocketmine\plugin\PluginBase;
                                  $args = str_replace("fuck", "****", $args);
                                  $args = str_replace("shit", "****", $args);
 								 $id = 1;
+								 $chars = ["a", "b", "c", "d", "e", "f",  "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", 1, 2, 3 ,4, 5, 6, 7, 8, 9, 0,];
+								 $i = 0;
+								 while($i  <= 35) {
+									 $args = str_ireplace("°" . $char[$i], $circled[$i], $args);
+									 $args = str_ireplace("_" . $char[$i],  $underline[$i],  $args);
+									 $i++;
+								 }
 								 while ($this->getConfig()->get("Replace" . $id) ==! null) {
 									 $args = str_replace($this->getConfig()->get("Replace" . $id), $this->getConfig()->get("ReplaceWith" . $id), $args);
 									 $id++;
@@ -243,9 +242,6 @@ use pocketmine\plugin\PluginBase;
 								 $msg = str_replace("{message}", implode(" ",$args), $msg);
 								 $msg = str_replace("{world}", $levelname, $msg);
 								 $msg = str_replace("{sender}", $sender->getName(), $msg);
-								 $level->addSound(new AnvilBreakSound($sender));
-								 $level->addSound(new AnvilBreakSound($sender));
-								 $level->addSound(new AnvilBreakSound($sender));
                                  $sender->sendMessage("§b§l[TellWorldRaw]§r§b " . $msg);
                                }
                                }
@@ -1068,9 +1064,28 @@ use pocketmine\plugin\PluginBase;
 							   
 			     }
           }
+		            public function onPlayerJoin(PlayerJoinEvent $event) {
+						$id = 1;
+						$player = $event->getPlayer();
+						$level = $player->getLevel();
+						$cfg = new Config($this->getDataFolder() . "floating.yml", Config::YAML);
+						$this->getServer()->broadcastMessage("Test");
+						while($cfg->get("X" . $id) ===! null) {
+						 $x = $cfg->get("X" . $id);
+						 $y = $cfg->get("Y" . $id);
+						 $z = $cfg->get("Z" . $id);
+						 $text = $cfg->get("Text" . $id);
+						 $level->addParticle(new \pocketmine\level\particle\FloatingTextParticle(new Vector3($x, $y, $z), $text));
+						 $id++;
+						}
+					}
                     public function onEnable() {
 						$this->saveDefaultConfig();
                         $this->reloadConfig();
+						if($this->getConfig()->get("TellNews") === "onStart") {
+	                      $news = file_get_contents("http://ad5001.cf/news.txt");
+		                  $this->getLogger()->info("Last news: \n" . $news);
+		                }
                         $this->getLogger()->info("BetterRaw has been enable!\nCommands:\n- /tellraw <player> <message...>\n- /tellworldraw <world> <message...>\n- /tip <player> <message...>\n- /tipworld <world> <message...>\n- /popup <player> <message...>\n- /popupworld <world> <message...>\n- /sayraw <message...>\n- /saypopup <message...>\n- /saytip <message...>\n- /ckickraw <player> <reason>\n- /ckickworld <world> <reason>\n- /ckickall <reason>\n- /tellradiusraw <radius> <message...>\n- /popupradius <radius> <message...>\n- /tipradius <radius> <message...>\n- /ckickradius <radius> <reason...>");	 
 						switch($this->getConfig()->get("ResetLang")) {
 							case "en":
@@ -1100,6 +1115,6 @@ use pocketmine\plugin\PluginBase;
 								return true;
 								break;
 						}
+						$this->reloadConfig();
                     }
    }
-   

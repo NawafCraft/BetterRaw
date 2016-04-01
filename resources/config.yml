@@ -8,6 +8,7 @@ ResetLang: ""
 # Use {player} to selects persons that have been selected (for tellraw, popup & tip)
 # Use {world} to select the world that players has been selected (for tellwordraw, popupword & tipworld)
 # Use {sender} to select the command sender
+FloatingrawCmd: "tell {sender} &6No command selected"
 TellrawCmd: "tell {sender} &6No command selected (tellrawed player: {player})"
 TellWorldRawCmd: "tell {sender} &6No command selected (tellrawed world: {world})"
 PopupCmd: "tell {sender} &6No command selected (selected player: {player})"

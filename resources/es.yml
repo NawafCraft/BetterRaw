@@ -1,6 +1,10 @@
 ---
 # Config para BetterRaw
-# Esto es para hacer config restablece a un idioma. Vuelva a colocar la ResetLang para elegir el idioma (idiomas DISPONIBLE: Inglés (uso "en"), Le Français (Entrez "fr"), Deutch (eingeben "de"), Español (Entrar "ES"))
+
+# This is when you want to see the last news of from Ad5001. You can use : onStart (when servers starts), onCommand (when you use /news command (only for ops)) or never
+TellNews: "onStart"
+
+# This is to make reset config to a language. Replace the ResetLang to chose the language (avalaible languages: English(use "en"), le Français(entrez "fr"), Deutch(eingeben "de"), y Español(entrar "es"))
 ResetLang: ""
 
 # Establecer un  aquí para ser ejecutado en la consola
@@ -8,6 +12,7 @@ ResetLang: ""
 # Uso {player} para selecciona personas que han sido seleccionados (por tellraw, emergente &propina)
 # Uso {world} para seleccionar el mundo que los jugadores ha sido seleccionada (por tellwordraw, popupworld &tipworld)
 # Uso {sender}  para seleccionar el  de comando
+FloatingrawCmd: "tell {sender} &6No seleccionado remitente"
 TellrawCmd: "tell {sender}  &6No seleccionado remitente(reproductor tellrawed: {player})"
 TellWorldRawCmd: "tell {sender} &6No seleccionada (mundo tellrawed: {world})"
 PopupCmd: "tell {sender}  &6No seleccionado remitente (jugador seleccionado: {player})"
@@ -33,6 +38,7 @@ CkickRadiusCmd: "tell {sender}  &6No seleccionado remitente (radio seleccionado:
 # Uso {player} para selecciona personas que han sido seleccionados (por tellraw, emergente &propina)
 # Uso {world} para seleccionar el mundo que los jugadores ha sido seleccionada (por tellwordraw, popupword &tipworld)
 # Uso {message} para seleccionar el mensaje
+FloatingrawMSG: "Mesaje ({message})&a ha sido establecido!"
 TellrawMSG: "Mensaje ({mensaje}) &una ha sido enviado a {player}!"
 TellworldrawMSG: "Mensaje ({mensaje}) &b fue añadido el mundo {world}!"
 TipMSG: "Tip ({mensaje}) &4 ha sido enviado a {player}!"

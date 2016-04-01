@@ -1,5 +1,9 @@
 ---
 # Konfiguration zu BetterRaw
+
+# This is when you want to see the last news of from Ad5001. You can use : onStart (when servers starts), onCommand (when you use /news command (only for ops)) or never
+TellNews: "onStart"
+
 # This is an make reset config an a language. Replace the ResetLang an chose the language (avalaible languages: English(Verwenden "en"), le Français(entrez "fr"), Deutch(eingeben "de"), Español(entrar "es"))
 ResetLang: ""
 
@@ -8,6 +12,7 @@ ResetLang: ""
 # Verwenden {player} Personen auswählt, die (für tellraw, Popup & Tip) ausgewählt wurden,
 # Verwenden {world}, um die Welt zu wählen, dass die Spieler gewählt wurde (für tellwordraw, popupword & tipworld)
 # Verwenden {sender} den Befehl Aussteller zu wählen
+FloatingrawCmd: "tell {sender} &6Keine Befehl wählen"
 TellrawCmd: "tell {sender} &6Keine Befehl wählen (tellraw Spieler: {player})"
 TellWorldRawCmd: "tell {sender} &6Keine command wählen (tellraw Welt: {world})"
 PopupCmd: "tell {sender} &6Keine Befehl wählen (ausgewählt Spieler: {player})"
@@ -33,6 +38,7 @@ CkickRadiusCmd: "tell {sender} &6Keine Befehl wählen (ausgewählt radius: {radi
 # Verwenden {player} an Spielers that hat ausgewählt wählen (zu tellraw, popup & tip)
 # Verwenden {world} an the Welt aus Spielers hat ausgewählt wählen (zu tellwordraw, popupword & tipworld)
 # Verwenden {message} an select the die Nachricht
+FloatingrawMSG: "Die schwimmend Nachricht ({message})&a Wurde festgelegt!"
 TellrawMSG: "Die Nachricht ({message})&a wurde gesendet an {player}!"
 TellworldrawMSG: "Die Nachricht ({message})&b geschickt wurde Welt {world}!"
 TipMSG: "Das tip ({message})&4 wurde gesendet an {player}!"
